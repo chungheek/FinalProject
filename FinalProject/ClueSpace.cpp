@@ -5,6 +5,7 @@
 ***************************************************************/
 
 #include "ClueSpace.hpp"
+#include <string>
 
 
 /****************************************************************************************
@@ -85,4 +86,20 @@ Space *ClueSpace::getCurrentSpsace()
 void ClueSpace::setCurrentSpace(Space* space)
 {
     this->currentSpace = space;
+}
+
+/********************************************************************************************
+** Description: ClueSpace::getSpaceName() gets the current space name
+**********************************************************************************************/
+std::string ClueSpace::getSpaceName()
+{
+    return this->spaceName;
+}
+
+/********************************************************************************************
+** Description: ClueSpace::setSpaceName() sets the name of the current space
+**********************************************************************************************/
+void ClueSpace::setSpaceName(std::string name)
+{
+    this->spaceName = name;
 }

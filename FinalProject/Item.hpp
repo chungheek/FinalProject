@@ -7,8 +7,9 @@
 #ifndef Item_hpp
 #define Item_hpp
 
-#include "Character.hpp"
 #include <string>
+
+using std::string;
 
 class Item
 {
@@ -16,13 +17,13 @@ private:
     int jetFuel;
     int healthPotion;
     int magicItem;
-    std::string name;
+    string name;
+    
 public:
     Item(int);
-    void useHealthPotion(Character&);
-    void useJetFuel();
-    void setMagicItem(int);
-    void useMagicItem(int);
+//    void useHealthPotion(Character&);
+//    void setMagicItem(int);
+//    void useMagicItem(int);
 };
 
 #endif /* Item_hpp */

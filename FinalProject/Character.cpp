@@ -1,6 +1,6 @@
 /***************************************************************************************
 ** Author: Chunghee Kim
-** Date: 11/15/2019
+** Date: 12/01/2019
 ** Description: Implementation file for the Character class
 ***************************************************************************************/
 
@@ -10,6 +10,8 @@
 #include <iostream>
 
 using std::rand;
+using std::string;
+using std::find;
 
 /*******************************************************************************
 ** Description: Character::Character() default constructor for Character
@@ -74,7 +76,7 @@ int Character::getArmor()
 /*******************************************************************************
 ** Description: Character:getName() returns the name of the Barbarian
 *********************************************************************************/
-std::string Character::getName()
+string Character::getName()
 {
     return this->name;
 }
@@ -82,7 +84,19 @@ std::string Character::getName()
 /*******************************************************************************
 ** Description: Character:setName(string) sets the name of the Character
 *********************************************************************************/
-void Character::setName(std::string n)
+void Character::setName(string n)
 {
     this->name = n;
+}
+
+/*******************************************************************************
+** Description: Character:useHealthPotion() uses health potion if there is
+**          one available and will remove it from the inventory
+*********************************************************************************/
+void Character::useHealthPotion()
+{
+    for (int i=0; i < inventory.size(); i++)
+    {
+        
+    }
 }

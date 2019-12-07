@@ -85,3 +85,19 @@ void MonsterSpace::setCurrentSpace(Space* space)
 {
     this->currentSpace = space;
 }
+
+/********************************************************************************************
+** Description: MonsterSpace::getSpaceName() gets the current space name
+**********************************************************************************************/
+std::string MonsterSpace::getSpaceName()
+{
+    return this->spaceName;
+}
+
+/********************************************************************************************
+** Description: MonsterSpace::setSpaceName() sets the name of the current space
+**********************************************************************************************/
+void MonsterSpace::setSpaceName(std::string name)
+{
+    this->spaceName = name;
+}

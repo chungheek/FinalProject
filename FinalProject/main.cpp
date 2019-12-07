@@ -1,7 +1,7 @@
 /************************************************************************************************
 ** Author: Chunghee Kim
 ** Date: 12/01/2019
-** Description: Main file takes in the following classes:
+** Description: Main file for MonsterPlanet takes in the following classes:
 ************************************************************************************************/
 
 #include <iostream>
@@ -10,9 +10,15 @@
 #include "ClueSpace.hpp"
 #include "MonsterSpace.hpp"
 #include "SpaceShip.hpp"
+#include "Character.hpp"
+
+#include <cstdlib>
+#include <string>
+#include <iostream>
+
+using std::rand;
 
 int main() {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    std::cout << (rand() % 2 + 1) << std::endl;
     return 0;
 }

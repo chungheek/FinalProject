@@ -4,6 +4,7 @@
 ** Description: Implementation file for HomeSpace class
 ***************************************************************/
 #include "HomeSpace.hpp"
+#include "Character.hpp"
 
 /****************************************************************************************
 ** Description: HomeSpace::getTop() returns the Top space  of the current space
@@ -83,4 +84,20 @@ Space *HomeSpace::getCurrentSpsace()
 void HomeSpace::setCurrentSpace(Space* space)
 {
     this->currentSpace = space;
+}
+
+/********************************************************************************************
+** Description: HomeSpace::getSpaceName() gets the current space name
+**********************************************************************************************/
+std::string HomeSpace::getSpaceName()
+{
+    return this->spaceName;
+}
+
+/********************************************************************************************
+** Description: HomeSpace::setSpaceName() sets the name of the current space
+**********************************************************************************************/
+void HomeSpace::setSpaceName(std::string name)
+{
+    this->spaceName = name;
 }

@@ -85,3 +85,19 @@ void SpaceShip::setCurrentSpace(Space* space)
 {
     this->currentSpace = space;
 }
+
+/********************************************************************************************
+** Description: SpaceShip::getSpaceName() gets the current space name
+**********************************************************************************************/
+std::string SpaceShip::getSpaceName()
+{
+    return this->spaceName;
+}
+
+/********************************************************************************************
+** Description: SpaceShip::setSpaceName() sets the name of the current space
+**********************************************************************************************/
+void SpaceShip::setSpaceName(std::string name)
+{
+    this->spaceName = name;
+}

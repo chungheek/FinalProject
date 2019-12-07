@@ -5,10 +5,14 @@
 ******************************************************************/
 
 #include "Item.hpp"
+#include "Character.hpp"
 #include <iostream>
 #include <string>
 
 using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
 
 /*******************************************************************************
 ** Description: Item::Item(int) default constructor for Item class object
@@ -40,24 +44,24 @@ Item::Item(int num)
     }
 }
 
-/*******************************************************************************
-** Description: Item::useHealthPotion() if the item is a healthPotion and
-**         if the character wishes to use it then it will give back health
-*********************************************************************************/
-void Item::useHealthPotion(Character &character)
-{
-    if (healthPotion > 0  && name == "HealthPotion")
-    {
-        int strength = character.getStrength();
-        character.setStrength(strength + 5);
-        healthPotion--;
-    }
-    if (healthPotion <= 0 && name == "HealthPotion")
-    {
-        std::cout << "No health potions are available to use" << std::endl;
-    }
-    else
-    {
-        std::cout << "This item is not a health potion" << std::endl;
-    }
-}
+///*******************************************************************************
+//** Description: Item::useHealthPotion() if the item is a healthPotion and
+//**         if the character wishes to use it then it will give back health
+//*********************************************************************************/
+//void Item::useHealthPotion(Character &character)
+//{
+//    if (healthPotion > 0  && name == "HealthPotion")
+//    {
+//        int strength = character.getStrength();
+//        character.setStrength(strength + 5);
+//        healthPotion--;
+//    }
+//    if (healthPotion <= 0 && name == "HealthPotion")
+//    {
+//        cout << "No health potions are available to use" << endl;
+//    }
+//    else
+//    {
+//        cout << "This item is not a health potion" << endl;
+//    }
+//}

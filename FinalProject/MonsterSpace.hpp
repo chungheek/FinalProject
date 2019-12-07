@@ -7,8 +7,10 @@
 #ifndef MonsterSpace_hpp
 #define MonsterSpace_hpp
 
-#include <stdio.h>
 #include "Space.hpp"
+#include <string>
+
+using std::string;
 
 class MonsterSpace : Space
 {
@@ -18,6 +20,8 @@ private:
     Space *left;
     Space *right;
     Space *currentSpace;
+    string spaceName;
+    
 public:
     Space *getTop();
     void setTop(Space*);
@@ -29,6 +33,8 @@ public:
     void setRight(Space*);
     Space *getCurrentSpsace();
     void setCurrentSpace(Space*);
+    string getSpaceName();
+    void setSpaceName(string);
 };
 
 #endif /* MonsterSpace_hpp */

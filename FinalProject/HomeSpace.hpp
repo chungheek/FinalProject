@@ -7,8 +7,11 @@
 #ifndef HomeSpace_hpp
 #define HomeSpace_hpp
 
-#include <stdio.h>
 #include "Space.hpp"
+#include "Character.hpp"
+#include <string>
+
+using std::string;
 
 class HomeSpace : Space
 {
@@ -19,6 +22,8 @@ private:
     Space *left;
     Space *right;
     Space *currentSpace;
+    string spaceName;
+    
 public:
     void heal(Character&);
     Space *getTop();
@@ -31,6 +36,8 @@ public:
     void setRight(Space*);
     Space *getCurrentSpsace();
     void setCurrentSpace(Space*);
+    string getSpaceName();
+    void setSpaceName(string);
 };
 
 #endif /* HomeSpace_hpp */
