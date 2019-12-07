@@ -1,19 +1,32 @@
-//
-//  Frankenstein.hpp
-//  FinalProject
-//
-//  Created by Chunghee Kim on 12/6/19.
-//  Copyright © 2019 Chunghee Kim. All rights reserved.
-//
+/***************************************************************************************
+** Author: Chunghee Kim
+** Date: 12/01/2019
+** Description: Header file for Frankenstein class
+***************************************************************************************/
 
 #ifndef Frankenstein_hpp
 #define Frankenstein_hpp
 
-#include <stdio.h>
+#include "Character.hpp"
+#include <string>
 
-class Frankenstein
+using std::string;
+
+class Frankenstein : public Character
 {
+private:
+    int armor;
+    int strength;
+    string name;
     
+public:
+    Frankenstein();
+    ~Frankenstein();
+    int attackAction();
+    int defendAction();
+    int getStrength();
+    int getArmor();
+    string getName();
 };
 
 #endif /* Frankenstein_hpp */

@@ -22,7 +22,9 @@ private:
     Space *currentSpace;
     string spaceName;
     
+    
 public:
+    
     Space *getTop();
     void setTop(Space*);
     Space *getBottom();

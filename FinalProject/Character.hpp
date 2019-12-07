@@ -12,28 +12,22 @@
 #include <vector>
 #include <string>
 
-using std::vector;
 using std::string;
 
 class Character
 {
-private:
+protected:
     int armor;
     int strength;
     string name;
-    vector<Item> inventory;
     
 public:
-    Character();
-    ~Character();
-    int attackAction();
-    int defendAction();
-    int getStrength();
-    void setStrength(int);
-    int getArmor();
-    string getName();
-    void setName(string);
-    void useHealthPotion();
+    virtual ~Character() = default;
+    virtual int attackAction() = 0;
+    virtual int defendAction() = 0;
+    virtual int getStrength() = 0;
+    virtual int getArmor() = 0;
+    virtual string getName() = 0;
 };
 
 #endif /* Character_hpp */

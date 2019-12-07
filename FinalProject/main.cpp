@@ -19,6 +19,9 @@
 using std::rand;
 
 int main() {
-    std::cout << (rand() % 2 + 1) << std::endl;
+    
+    HomeSpace homeSpace;
+    
+    
     return 0;
 }

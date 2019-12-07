@@ -17,7 +17,7 @@ using std::rand;
 WereWolf::WereWolf()
 {
     this->armor = 1;
-    this->strength = 18;
+    this->strength = 10;
     this->name = "WereWolf";
 }
 
@@ -39,11 +39,11 @@ int WereWolf::attackAction()
 
 /*******************************************************************************
 ** Description: WereWolf::defendAction() returns a random integer between
-**              values of 1 and 2 for the number of sides of a die.
+**              values of 1 and 3  for the number of sides of a die.
 *********************************************************************************/
 int WereWolf::defendAction()
 {
-    return rand() % 2 + 1;
+    return rand() % 3 + 1;
 }
 
 /*******************************************************************************
