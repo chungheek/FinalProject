@@ -7,6 +7,23 @@
 #include "ClueSpace.hpp"
 #include <string>
 
+using std::string;
+
+/****************************************************************************************
+** Description: ClueSpace::ClueSpace(string) default constructor and sets name
+**          to the given string.
+*******************************************************************************************/
+ClueSpace::ClueSpace(string name)
+{
+    this->spaceName = name;
+}
+
+/****************************************************************************************
+** Description: ClueSpace::~ClueSpace(string) destructor for ClueSpace object
+*******************************************************************************************/
+ClueSpace::~ClueSpace()
+{
+}
 
 /****************************************************************************************
 ** Description: ClueSpace::getTop() returns the Top space  of the current space
@@ -91,7 +108,7 @@ void ClueSpace::setCurrentSpace(Space* space)
 /********************************************************************************************
 ** Description: ClueSpace::getSpaceName() gets the current space name
 **********************************************************************************************/
-std::string ClueSpace::getSpaceName()
+string ClueSpace::getSpaceName()
 {
     return this->spaceName;
 }
@@ -99,7 +116,23 @@ std::string ClueSpace::getSpaceName()
 /********************************************************************************************
 ** Description: ClueSpace::setSpaceName() sets the name of the current space
 **********************************************************************************************/
-void ClueSpace::setSpaceName(std::string name)
+void ClueSpace::setSpaceName(string name)
 {
     this->spaceName = name;
+}
+
+/********************************************************************************************
+** Description: ClueSpace::getClue() retrieves the clue of the current space
+**********************************************************************************************/
+string ClueSpace::getClue()
+{
+    return this->clue;
+}
+
+/********************************************************************************************
+** Description: ClueSpace::setClue() sets the clue of the current space
+**********************************************************************************************/
+void ClueSpace::setClue(string clue)
+{
+    this->clue = clue;
 }

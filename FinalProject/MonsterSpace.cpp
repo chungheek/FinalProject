@@ -5,6 +5,26 @@
 ******************************************************************/
 
 #include "MonsterSpace.hpp"
+#include <string>
+
+using std::string;
+
+/****************************************************************************************
+** Description: MonsterSpace::MonsterSpace(Character) default constructor that
+**          takes in a monster character and that character is used for that space
+*******************************************************************************************/
+MonsterSpace::MonsterSpace(Character *monst, string name)
+{
+    this->spaceName = name;
+    this->monster = monst;
+}
+
+/****************************************************************************************
+** Description: MonsterSpace::MonsterSpace(Character) default destructor
+*******************************************************************************************/
+MonsterSpace::~MonsterSpace()
+{
+}
 
 /****************************************************************************************
 ** Description: MonsterSpace::getTop() returns the Top space  of the current space
@@ -94,10 +114,3 @@ std::string MonsterSpace::getSpaceName()
     return this->spaceName;
 }
 
-/********************************************************************************************
-** Description: MonsterSpace::setSpaceName() sets the name of the current space
-**********************************************************************************************/
-void MonsterSpace::setSpaceName(std::string name)
-{
-    this->spaceName = name;
-}

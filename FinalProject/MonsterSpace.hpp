@@ -8,11 +8,12 @@
 #define MonsterSpace_hpp
 
 #include "Space.hpp"
+#include "Character.hpp"
 #include <string>
 
 using std::string;
 
-class MonsterSpace : Space
+class MonsterSpace : public Space
 {
 private:
     Space *top;
@@ -21,10 +22,11 @@ private:
     Space *right;
     Space *currentSpace;
     string spaceName;
-    
+    Character *monster;
     
 public:
-    
+    MonsterSpace(Character*, string);
+    ~MonsterSpace();
     Space *getTop();
     void setTop(Space*);
     Space *getBottom();
@@ -36,7 +38,6 @@ public:
     Space *getCurrentSpsace();
     void setCurrentSpace(Space*);
     string getSpaceName();
-    void setSpaceName(string);
 };
 
 #endif /* MonsterSpace_hpp */

@@ -7,6 +7,21 @@
 #include "Character.hpp"
 
 /****************************************************************************************
+** Description: HomeSpace::HomeSpace() default constructor that initializes name
+*******************************************************************************************/
+HomeSpace::HomeSpace()
+{
+    this->spaceName = "Home";
+}
+
+/****************************************************************************************
+** Description: HomeSpace::~HomeSpace() destructor for the HomeSpace object
+*******************************************************************************************/
+HomeSpace::~HomeSpace()
+{
+}
+
+/****************************************************************************************
 ** Description: HomeSpace::getTop() returns the Top space  of the current space
 *******************************************************************************************/
 Space *HomeSpace::getTop()
@@ -94,10 +109,10 @@ std::string HomeSpace::getSpaceName()
     return this->spaceName;
 }
 
-/********************************************************************************************
-** Description: HomeSpace::setSpaceName() sets the name of the current space
-**********************************************************************************************/
-void HomeSpace::setSpaceName(std::string name)
-{
-    this->spaceName = name;
-}
+///********************************************************************************************
+//** Description: HomeSpace::setSpaceName() sets the name of the current space
+//**********************************************************************************************/
+//void HomeSpace::setSpaceName(std::string name)
+//{
+//    this->spaceName = name;
+//}

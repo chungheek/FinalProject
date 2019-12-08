@@ -12,7 +12,7 @@
 
 using std::string;
 
-class ClueSpace : Space
+class ClueSpace : public Space
 {
 private:
     string clue;
@@ -24,6 +24,8 @@ private:
     string spaceName;
     
 public:
+    ClueSpace(string);
+    ~ClueSpace();
     Space *getTop();
     void setTop(Space*);
     Space *getBottom();
@@ -36,6 +38,8 @@ public:
     void setCurrentSpace(Space*);
     string getSpaceName();
     void setSpaceName(string);
+    string getClue();
+    void setClue(string);
 };
 
 #endif /* ClueSpace_hpp */

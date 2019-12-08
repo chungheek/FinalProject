@@ -9,6 +9,7 @@
 
 #include "Character.hpp"
 #include "Item.hpp"
+#include "Space.hpp"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,6 +24,7 @@ private:
     int strength;
     string name;
     vector<Item> inventory;
+    Space *currentSpace;
     
 public:
     MainCharacter();
@@ -35,6 +37,8 @@ public:
     string getName();
     void setName(string);
     void useHealthPotion();
+    Space *getCurrentSpace();
+    void setCurrentSpace(Space*);
 };
 
 #endif /* MainCharacter_hpp */

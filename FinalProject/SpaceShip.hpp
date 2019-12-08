@@ -11,7 +11,7 @@
 
 using std::string;
 
-class SpaceShip : Space
+class SpaceShip : public Space
 {
 private:
     Space *top;
@@ -22,6 +22,8 @@ private:
     string spaceName;
     
 public:
+    SpaceShip();
+    ~SpaceShip();
     Space *getTop();
     void setTop(Space*);
     Space *getBottom();

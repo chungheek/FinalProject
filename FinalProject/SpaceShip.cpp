@@ -7,6 +7,21 @@
 #include "SpaceShip.hpp"
 
 /****************************************************************************************
+** Description: SpaceShip::SpaceShip() default constructor for SpaceShip object
+*******************************************************************************************/
+SpaceShip::SpaceShip()
+{
+    this->spaceName = "Space Ship";
+}
+
+/****************************************************************************************
+** Description: SpaceShip::~SpaceShip() destructor for SpaceShip object
+*******************************************************************************************/
+SpaceShip::~SpaceShip()
+{
+}
+
+/****************************************************************************************
 ** Description: SpaceShip::getTop() returns the Top space  of the current space
 *******************************************************************************************/
 Space *SpaceShip::getTop()
@@ -94,10 +109,3 @@ std::string SpaceShip::getSpaceName()
     return this->spaceName;
 }
 
-/********************************************************************************************
-** Description: SpaceShip::setSpaceName() sets the name of the current space
-**********************************************************************************************/
-void SpaceShip::setSpaceName(std::string name)
-{
-    this->spaceName = name;
-}

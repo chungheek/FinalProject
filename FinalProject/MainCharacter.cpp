@@ -100,3 +100,21 @@ void MainCharacter::useHealthPotion()
         
     }
 }
+
+/*******************************************************************************
+** Description: MainCharacter:getCurrentSpace() returns the current
+**      space and all its properties.
+*********************************************************************************/
+Space* MainCharacter::getCurrentSpace()
+{
+    return this->currentSpace;
+}
+
+/*******************************************************************************
+** Description: MainCharacter:setCurrentSpace() sets the current
+**      space to a specific space and all its properties.
+*********************************************************************************/
+void MainCharacter::setCurrentSpace(Space *space)
+{
+    this->currentSpace = space;
+}

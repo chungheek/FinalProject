@@ -13,7 +13,7 @@
 
 using std::string;
 
-class HomeSpace : Space
+class HomeSpace : public Space
 {
 private:
     int healCounter;
@@ -25,6 +25,8 @@ private:
     string spaceName;
     
 public:
+    HomeSpace();
+    ~HomeSpace();
     void heal(Character&);
     Space *getTop();
     void setTop(Space*);
@@ -37,7 +39,7 @@ public:
     Space *getCurrentSpsace();
     void setCurrentSpace(Space*);
     string getSpaceName();
-    void setSpaceName(string);
+    //void setSpaceName(string);
 };
 
 #endif /* HomeSpace_hpp */
