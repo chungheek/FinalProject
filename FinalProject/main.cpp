@@ -46,17 +46,23 @@ int main()
         string message = "Welcome to Monster Planet...You have crash landed on this nightmare of a planet and must find a way to escape this estranged world....\n";
         slow_print(message, 30);
         
+        // Istantiate MainCharacter class object
+        MainCharacter mainCharacter;
+        cout << "Please select a name for your character: " << endl;
+        string mainCharactName = menu.stringValidator();
+        mainCharacter.setName(mainCharactName);
+        
         // Istantiate the spaces and the necessary monsters to construct the map
         Space *homeSpace = new HomeSpace();
         
         Character *vampire = new Vampire();
-        Space *vampireCastle = new MonsterSpace(vampire, "Vampire's Castle");
+        Space *vampireCastle = new MonsterSpace(vampire, mainCharacter, "Vampire's Castle");
         Character *medusa = new Medusa();
-        Space *medusaCave = new MonsterSpace(medusa, "Medusa's cave");
+        Space *medusaCave = new MonsterSpace(medusa, mainCharacter, "Medusa's cave");
         Character *wereWolf = new WereWolf();
-        Space *woods = new MonsterSpace(wereWolf, "Woods");
+        Space *woods = new MonsterSpace(wereWolf, mainCharacter, "Woods");
         Character *frankenstein = new Frankenstein();
-        Space *frankensteinLab = new MonsterSpace(frankenstein, "Frankenstein's Lab");
+        Space *frankensteinLab = new MonsterSpace(frankenstein, mainCharacter, "Frankenstein's Lab");
         
         Space *townA42 = new ClueSpace("A42", "Welcome to town A42! As you can see there seems to be a spaceship on the map. Perhaps you can use that to escape? It's rumoured that the monsters withold jetfuel...\n Fun Fact: the towns people of A42 love Caesar Salad");
         Space *townB42 = new ClueSpace("B42", "Welcome to town B42, we are in need of your help! The big wolf in the woods and frankenstein's monster terrorizes both sides of the city! Please help us defeat them!\n Fun Fact: the towns people of B42 love the fact that there are NINE realms on Monster Planet...just not the monsters part...");
@@ -110,10 +116,6 @@ int main()
         spaceShip->setLeft(nullptr);
         spaceShip->setRight(nullptr);
         
-        MainCharacter mainCharacter;
-        cout << "Please select a name for your character: " << endl;
-        string mainCharactName = menu.stringValidator();
-        mainCharacter.setName(mainCharactName);
         mainCharacter.setCurrentSpace(homeSpace);
         string message2 = mainCharacter.getName() + ", please use the map to gain clues and figure out how to leave this land.\n";
         slow_print(message2, 30);
@@ -243,6 +245,7 @@ void performSpaceAction(MainCharacter& mainCharacter, bool& play)
     if(mainCharacter.getCurrentSpace()->getSpaceType() == "MonsterSpace")
     {
        mainCharacter.getCurrentSpace()->performSpaceAction();
+    
     }
     if(mainCharacter.getCurrentSpace()->getSpaceType() == "SpaceshipSpace")
     {
@@ -269,6 +272,7 @@ void performSpaceAction(MainCharacter& mainCharacter, bool& play)
         }
     }
 }
+
 
 /************************************************************************************************
 ** Description: slow_print() is a function taken from the following website:

@@ -9,6 +9,7 @@
 
 #include "Space.hpp"
 #include "Character.hpp"
+#include "MainCharacter.hpp"
 #include <string>
 
 using std::string;
@@ -23,10 +24,11 @@ private:
     string spaceName;
     string spaceType;
     Character *monster;
+    MainCharacter mainCharacter;
     int counter;
     
 public:
-    MonsterSpace(Character*, string);
+    MonsterSpace(Character*, MainCharacter&, string);
     ~MonsterSpace();
     Space *getTop();
     void setTop(Space*);
@@ -41,6 +43,7 @@ public:
     string getSpaceType();
     int getCounter();
     void performSpaceAction();
+    void combatGame();
 };
 
 #endif /* MonsterSpace_hpp */

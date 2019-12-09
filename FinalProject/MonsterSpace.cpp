@@ -6,17 +6,23 @@
 
 #include "MonsterSpace.hpp"
 #include <string>
+#include <iostream>
 
 using std::string;
+using std::cout;
+using std::endl;
+using std::cin;
+
 
 /****************************************************************************************
 ** Description: MonsterSpace::MonsterSpace(Character) default constructor that
 **          takes in a monster character and that character is used for that space
 *******************************************************************************************/
-MonsterSpace::MonsterSpace(Character *monst, string name)
+MonsterSpace::MonsterSpace(Character *monst, MainCharacter& main, string name)
 {
     this->spaceName = name;
     this->monster = monst;
+    this->mainCharacter = main;
     this->spaceType = "MonsterSpace";
     this->counter = 0;
 }
@@ -129,5 +135,57 @@ int MonsterSpace::getCounter()
 **********************************************************************************************/
 void MonsterSpace::performSpaceAction()
 {
+    combatGame();
+}
+
+/********************************************************************************
+** Description: combatGame() starts and implements the Fantasy Combat Game
+**         this game is refactored so it will only return the winner of the
+**         game and not print any of the intricate details of each round.
+**********************************************************************************/
+void MonsterSpace::combatGame()
+{
+    cout << "You are challenging " << monster->getName() << endl;
     
+    int totalDamage = 0;
+       
+    while(true)
+    {
+       int attack = 0;
+       int defend = 0;
+       int armor = 0;
+       int newStrength = 0;
+       // Where player 1 attacks
+       attack = mainCharacter.attackAction();
+       defend = monster->defendAction();
+       armor = monster->getArmor();
+       totalDamage = attack - defend - armor;
+       if(totalDamage<=0){totalDamage=0;};
+       newStrength = monster->getStrength() - totalDamage;
+       monster->setStrength(newStrength);
+       if(monster->getStrength() <= 0)
+       {
+           //cout << "Player 2's strength is at 0, Player 1 has won the round!" << endl;
+
+           cout << mainCharacter.getName() << " won!" << endl;
+           cout << "Current Strength: " << mainCharacter.getStrength() << endl;
+           break;
+       }
+      // Where Player 2 attacks
+       attack = monster->attackAction();
+       defend = mainCharacter.defendAction();
+       armor = mainCharacter.getArmor();
+       totalDamage = attack - defend - armor;
+       if(totalDamage<=0){totalDamage=0;};
+       newStrength = mainCharacter.getStrength() - totalDamage;
+       mainCharacter.setStrength(newStrength);
+       if(mainCharacter.getStrength() <= 0)
+       {
+           //cout << "Player 1's strength is at 0, Player 2 has won the round!" << endl;
+
+           cout << monster->getName() << " won!" << endl;
+           cout << "You have died!" << endl;
+           break;
+       }
+    }
 }
