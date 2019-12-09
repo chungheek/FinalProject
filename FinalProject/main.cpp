@@ -29,15 +29,19 @@ using std::cin;
 using std::endl;
 using std::string;
 using std::flush;
+using std::getline;
 using std::this_thread::sleep_for;
 using std::chrono::milliseconds;
 
+void performSpaceAction(MainCharacter&, bool&);
 void slow_print(const string&, unsigned int);
 
-int main() {
+int main()
+{
     Menu menu;
     int yOrN = menu.play();
-    while (true && yOrN == 1)
+    bool keepPlaying = true;
+    while (keepPlaying && yOrN == 1)
     {
         string message = "Welcome to Monster Planet...You have crash landed on this nightmare of a planet and must find a way to escape this estranged world....\n";
         slow_print(message, 30);
@@ -54,9 +58,9 @@ int main() {
         Character *frankenstein = new Frankenstein();
         Space *frankensteinLab = new MonsterSpace(frankenstein, "Frankenstein's Lab");
         
-        Space *townA42 = new ClueSpace("A42");
-        Space *townB42 = new ClueSpace("B42");
-        Space *townC42 = new ClueSpace("C42");
+        Space *townA42 = new ClueSpace("A42", "Welcome to town A42! As you can see there seems to be a spaceship on the map. Perhaps you can use that to escape? It's rumoured that the monsters withold jetfuel...\n Fun Fact: the towns people of A42 love Caesar Salad");
+        Space *townB42 = new ClueSpace("B42", "Welcome to town B42, we are in need of your help! The big wolf in the woods and frankenstein's monster terrorizes both sides of the city! Please help us defeat them!\n Fun Fact: the towns people of B42 love the fact that there are NINE realms on Monster Planet...just not the monsters part...");
+        Space *townC42 = new ClueSpace("C42", "Welcome to town C42, the Vampire and Medusa completely rule these lands and we need help! Please help us defeat them! But be warned they are incredibly strong!\n Fun Fact: the towns people of C42 were masters of encryption, but they do not share their secrets with anyone.");
         
         Space *spaceShip = new SpaceShip();
         
@@ -114,7 +118,7 @@ int main() {
         string message2 = mainCharacter.getName() + ", please use the map to gain clues and figure out how to leave this land.\n";
         slow_print(message2, 30);
         
-        while(true)
+        while(keepPlaying)
         {
             int mainMenu = menu.menu();
             if(mainMenu == 1)
@@ -126,6 +130,8 @@ int main() {
                 else
                 {
                     mainCharacter.setCurrentSpace(mainCharacter.getCurrentSpace()->getTop());
+                    performSpaceAction(mainCharacter, keepPlaying);
+                   
                 }
             }
             if(mainMenu == 2)
@@ -137,6 +143,7 @@ int main() {
                 else
                 {
                     mainCharacter.setCurrentSpace(mainCharacter.getCurrentSpace()->getBottom());
+                    performSpaceAction(mainCharacter, keepPlaying);
                 }
             }
             if(mainMenu == 3)
@@ -148,6 +155,7 @@ int main() {
                 else
                 {
                     mainCharacter.setCurrentSpace(mainCharacter.getCurrentSpace()->getLeft());
+                    performSpaceAction(mainCharacter, keepPlaying);
                 }
             }
             if(mainMenu == 4)
@@ -159,6 +167,7 @@ int main() {
                 else
                 {
                     mainCharacter.setCurrentSpace(mainCharacter.getCurrentSpace()->getRight());
+                    performSpaceAction(mainCharacter, keepPlaying);
                 }
             }
             if(mainMenu == 5)
@@ -200,7 +209,10 @@ int main() {
                 {
                     menu.printMap(9);
                 }
-                
+            }
+            if(mainMenu == 6)
+            {
+                mainCharacter.printInventory();
             }
             
         }
@@ -208,11 +220,55 @@ int main() {
     }
     
     
-    
+    cout << "Exiting game, goodbye" << endl;
     
     return 0;
 }
 
+
+/********************************************************************************************************
+** Description: performAction() helper function performs the space action of the current space
+*********************************************************************************************************/
+void performSpaceAction(MainCharacter& mainCharacter, bool& play)
+{
+    Menu menu;
+    if(mainCharacter.getCurrentSpace()->getSpaceType() == "HomeSpace")
+    {
+       mainCharacter.getCurrentSpace()->performSpaceAction();
+    }
+    if(mainCharacter.getCurrentSpace()->getSpaceType() == "ClueSpace")
+    {
+       mainCharacter.getCurrentSpace()->performSpaceAction();
+    }
+    if(mainCharacter.getCurrentSpace()->getSpaceType() == "MonsterSpace")
+    {
+       mainCharacter.getCurrentSpace()->performSpaceAction();
+    }
+    if(mainCharacter.getCurrentSpace()->getSpaceType() == "SpaceshipSpace")
+    {
+        string deciphered;
+        mainCharacter.getCurrentSpace()->performSpaceAction();
+        if(mainCharacter.useJetFuel())
+        {
+            cout << "Would you like to deciper it? 1. Yes or 2. No?" << endl;
+            int yOrN = menu.yesOrNo();
+            if(yOrN == 1)
+            {
+                cout << "Please enter something: " << endl;
+                getline(cin,deciphered);
+                if(deciphered == "so long and thanks for all the fish")
+                {
+                    cout << "You have successfully escaped Monster Planet! Thank you for playing!" << endl;
+                    play = false;
+                }
+                else
+                {
+                    cout << "Incorrect!" << endl;
+                }
+            }
+        }
+    }
+}
 
 /************************************************************************************************
 ** Description: slow_print() is a function taken from the following website:

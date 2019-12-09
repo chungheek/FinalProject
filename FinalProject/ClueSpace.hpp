@@ -7,6 +7,7 @@
 #ifndef ClueSpace_hpp
 #define ClueSpace_hpp
 
+#include "Character.hpp"
 #include "Space.hpp"
 #include <string>
 
@@ -20,11 +21,12 @@ private:
     Space *bottom;
     Space *left;
     Space *right;
-    Space *currentSpace;
     string spaceName;
+    string spaceType;
+    int counter;
     
 public:
-    ClueSpace(string);
+    ClueSpace(string,string);
     ~ClueSpace();
     Space *getTop();
     void setTop(Space*);
@@ -34,12 +36,13 @@ public:
     void setLeft(Space*);
     Space *getRight();
     void setRight(Space*);
-    Space *getCurrentSpsace();
-    void setCurrentSpace(Space*);
+    Space *getCurrentSpace();
     string getSpaceName();
-    void setSpaceName(string);
+    string getSpaceType();
     string getClue();
     void setClue(string);
+    int getCounter();
+    void performSpaceAction();
 };
 
 #endif /* ClueSpace_hpp */

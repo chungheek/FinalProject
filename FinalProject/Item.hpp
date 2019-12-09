@@ -21,9 +21,7 @@ private:
     
 public:
     Item(int);
-//    void useHealthPotion(Character&);
-//    void setMagicItem(int);
-//    void useMagicItem(int);
+    string getItemName();
 };
 
 #endif /* Item_hpp */

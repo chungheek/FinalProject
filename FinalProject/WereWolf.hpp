@@ -18,6 +18,7 @@ private:
     int armor;
     int strength;
     string name;
+    string characterType;
 
 public:
     WereWolf();
@@ -25,7 +26,9 @@ public:
     int attackAction();
     int defendAction();
     int getStrength();
+    void setStrength(int);
     int getArmor();
     string getName();
+    string getCharacterType();
 };
 #endif /* WereWolf_hpp */

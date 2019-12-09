@@ -6,16 +6,23 @@
 
 #include "ClueSpace.hpp"
 #include <string>
+#include <iostream>
 
 using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
 
 /****************************************************************************************
 ** Description: ClueSpace::ClueSpace(string) default constructor and sets name
 **          to the given string.
 *******************************************************************************************/
-ClueSpace::ClueSpace(string name)
+ClueSpace::ClueSpace(string name, string c)
 {
     this->spaceName = name;
+    this->clue = c;
+    this->spaceType = "ClueSpace";
+    this->counter = 0;
 }
 
 /****************************************************************************************
@@ -92,17 +99,9 @@ void ClueSpace::setRight(Space* space)
 /********************************************************************************************
 ** Description: ClueSpace::getCurrentSpace() returns the current space
 **********************************************************************************************/
-Space *ClueSpace::getCurrentSpsace()
+Space *ClueSpace::getCurrentSpace()
 {
-    return this->currentSpace;
-}
-
-/********************************************************************************************
-** Description: ClueSpace::setCurrentSpace() sets the current space
-**********************************************************************************************/
-void ClueSpace::setCurrentSpace(Space* space)
-{
-    this->currentSpace = space;
+    return this;
 }
 
 /********************************************************************************************
@@ -114,11 +113,11 @@ string ClueSpace::getSpaceName()
 }
 
 /********************************************************************************************
-** Description: ClueSpace::setSpaceName() sets the name of the current space
+** Description: ClueSpace::getSpaceType() returns the type of current space
 **********************************************************************************************/
-void ClueSpace::setSpaceName(string name)
+string ClueSpace::getSpaceType()
 {
-    this->spaceName = name;
+    return this->spaceType;
 }
 
 /********************************************************************************************
@@ -135,4 +134,21 @@ string ClueSpace::getClue()
 void ClueSpace::setClue(string clue)
 {
     this->clue = clue;
+}
+
+/********************************************************************************************
+** Description: ClueSpace::getCounter returns the counter member variable
+**********************************************************************************************/
+int ClueSpace::getCounter()
+{
+    return this->counter;
+}
+
+/********************************************************************************************
+** Description: ClueSpace::performSpaceAction() does a space action. Gives a player
+**         information and clues to escape the planet.
+**********************************************************************************************/
+void ClueSpace::performSpaceAction()
+{
+    cout << getClue() << endl;
 }

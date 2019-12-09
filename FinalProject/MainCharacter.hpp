@@ -17,14 +17,15 @@
 using std::vector;
 using std::string;
 
-class MainCharacter : public Character
+class MainCharacter
 {
 private:
     int armor;
     int strength;
     string name;
-    vector<Item> inventory;
+    vector<Item> inventory; // Container for player to carry items with
     Space *currentSpace;
+    string characterType;
     
 public:
     MainCharacter();
@@ -39,6 +40,8 @@ public:
     void useHealthPotion();
     Space *getCurrentSpace();
     void setCurrentSpace(Space*);
+    void printInventory();
+    bool useJetFuel();
 };
 
 #endif /* MainCharacter_hpp */

@@ -72,6 +72,14 @@ int Medusa::getStrength()
 }
 
 /*******************************************************************************
+** Description: Medusa::setStrength() sets strength member variable
+*********************************************************************************/
+void Medusa::setStrength(int num)
+{
+    this->strength = num;
+}
+
+/*******************************************************************************
 ** Description: Medusa::getArmor() returns Armor member variable
 *********************************************************************************/
 int Medusa::getArmor()
@@ -85,4 +93,12 @@ int Medusa::getArmor()
 std::string Medusa::getName()
 {
     return this->name;
+}
+
+/*******************************************************************************
+** Description: Medusa:getCharacterType() returns "Monster" as type
+*********************************************************************************/
+std::string Medusa::getCharacterType()
+{
+    return this->characterType;
 }

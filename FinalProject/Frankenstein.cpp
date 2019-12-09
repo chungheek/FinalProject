@@ -56,6 +56,14 @@ int Frankenstein::getStrength()
 }
 
 /*******************************************************************************
+** Description: Frankenstein::setStrength() sets strength member variable
+*********************************************************************************/
+void Frankenstein::setStrength(int num)
+{
+    this->strength = num;
+}
+
+/*******************************************************************************
 ** Description: Frankenstein::getArmor() returns Armor member variable
 *********************************************************************************/
 int Frankenstein::getArmor()
@@ -64,9 +72,17 @@ int Frankenstein::getArmor()
 }
 
 /*******************************************************************************
-** Description: Frankenstein:getName() returns the name of the Barbarian
+** Description: Frankenstein::getName() returns the name of the Barbarian
 *********************************************************************************/
 std::string Frankenstein::getName()
 {
     return this->name;
+}
+
+/*******************************************************************************
+** Description: Frankenstein::getCharacterType() returns "Monster" as type
+*********************************************************************************/
+std::string Frankenstein::getCharacterType()
+{
+    return this->characterType;
 }

@@ -7,6 +7,7 @@
 #define SpaceShip_hpp
 
 #include "Space.hpp"
+#include "Character.hpp"
 #include <string>
 
 using std::string;
@@ -18,8 +19,9 @@ private:
     Space *bottom;
     Space *left;
     Space *right;
-    Space *currentSpace;
     string spaceName;
+    string spaceType;
+    int counter;
     
 public:
     SpaceShip();
@@ -32,10 +34,12 @@ public:
     void setLeft(Space*);
     Space *getRight();
     void setRight(Space*);
-    Space *getCurrentSpsace();
+    Space *getCurrentSpace();
     void setCurrentSpace(Space*);
     string getSpaceName();
-    void setSpaceName(string);
+    string getSpaceType();
+    int getCounter();
+    void performSpaceAction();
 };
 
 #endif /* SpaceShip_hpp */

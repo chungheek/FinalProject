@@ -24,7 +24,7 @@ Item::Item(int num)
         jetFuel = 1;
         healthPotion = 0;
         magicItem = 0;
-        name = "JetFuel";
+        name = "Jet Fuel";
         
     }
     if (num == 2)
@@ -32,36 +32,22 @@ Item::Item(int num)
         jetFuel = 0;
         healthPotion = 1;
         magicItem = 0;
-        name = "HealthPotion";
+        name = "Health Potion";
     }
     if (num == 3)
     {
         jetFuel = 0;
         healthPotion = 0;
         magicItem = 1;
-        name = "MagicItem";
+        name = "Magic Item";
         
     }
 }
 
-///*******************************************************************************
-//** Description: Item::useHealthPotion() if the item is a healthPotion and
-//**         if the character wishes to use it then it will give back health
-//*********************************************************************************/
-//void Item::useHealthPotion(Character &character)
-//{
-//    if (healthPotion > 0  && name == "HealthPotion")
-//    {
-//        int strength = character.getStrength();
-//        character.setStrength(strength + 5);
-//        healthPotion--;
-//    }
-//    if (healthPotion <= 0 && name == "HealthPotion")
-//    {
-//        cout << "No health potions are available to use" << endl;
-//    }
-//    else
-//    {
-//        cout << "This item is not a health potion" << endl;
-//    }
-//}
+/*******************************************************************************
+** Description: Item::getItemName() gets the item's name
+*********************************************************************************/
+string Item::getItemName()
+{
+    return this->name;
+}

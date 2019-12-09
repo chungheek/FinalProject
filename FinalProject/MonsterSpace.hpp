@@ -20,9 +20,10 @@ private:
     Space *bottom;
     Space *left;
     Space *right;
-    Space *currentSpace;
     string spaceName;
+    string spaceType;
     Character *monster;
+    int counter;
     
 public:
     MonsterSpace(Character*, string);
@@ -35,9 +36,11 @@ public:
     void setLeft(Space*);
     Space *getRight();
     void setRight(Space*);
-    Space *getCurrentSpsace();
-    void setCurrentSpace(Space*);
+    Space *getCurrentSpace();
     string getSpaceName();
+    string getSpaceType();
+    int getCounter();
+    void performSpaceAction();
 };
 
 #endif /* MonsterSpace_hpp */

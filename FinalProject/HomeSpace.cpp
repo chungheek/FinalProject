@@ -4,7 +4,10 @@
 ** Description: Implementation file for HomeSpace class
 ***************************************************************/
 #include "HomeSpace.hpp"
-#include "Character.hpp"
+#include <iostream>
+using std::cout;
+using std::cin;
+using std::endl;
 
 /****************************************************************************************
 ** Description: HomeSpace::HomeSpace() default constructor that initializes name
@@ -12,6 +15,8 @@
 HomeSpace::HomeSpace()
 {
     this->spaceName = "Home";
+    this->spaceType = "HomeSpace";
+    this->counter = 0;
 }
 
 /****************************************************************************************
@@ -88,17 +93,9 @@ void HomeSpace::setRight(Space* space)
 /********************************************************************************************
 ** Description: HomeSpace::getCurrentSpace() returns the current space
 **********************************************************************************************/
-Space *HomeSpace::getCurrentSpsace()
+Space *HomeSpace::getCurrentSpace()
 {
-    return this->currentSpace;
-}
-
-/********************************************************************************************
-** Description: HomeSpace::setCurrentSpace() sets the current space
-**********************************************************************************************/
-void HomeSpace::setCurrentSpace(Space* space)
-{
-    this->currentSpace = space;
+    return this;
 }
 
 /********************************************************************************************
@@ -109,10 +106,26 @@ std::string HomeSpace::getSpaceName()
     return this->spaceName;
 }
 
-///********************************************************************************************
-//** Description: HomeSpace::setSpaceName() sets the name of the current space
-//**********************************************************************************************/
-//void HomeSpace::setSpaceName(std::string name)
-//{
-//    this->spaceName = name;
-//}
+/********************************************************************************************
+** Description: HomeSpace::getSpaceType() returns the type of current space
+**********************************************************************************************/
+std::string HomeSpace::getSpaceType()
+{
+    return this->spaceType;
+}
+
+/********************************************************************************************
+** Description: HomeSpace::getCounter returns the counter member variable
+**********************************************************************************************/
+int HomeSpace::getCounter()
+{
+    return this->counter;
+}
+
+/********************************************************************************************
+** Description: HomeSpace::performSpaceAction() does a space action.
+**********************************************************************************************/
+void HomeSpace::performSpaceAction()
+{
+    cout << "Welcome home!" << endl;
+}

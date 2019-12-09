@@ -55,6 +55,14 @@ int WereWolf::getStrength()
 }
 
 /*******************************************************************************
+** Description: WereWolf::setStrength() sets strength member variable
+*********************************************************************************/
+void WereWolf::setStrength(int num)
+{
+    this->strength = num;
+}
+
+/*******************************************************************************
 ** Description: WereWolf::getArmor() returns Armor member variable
 *********************************************************************************/
 int WereWolf::getArmor()
@@ -68,4 +76,12 @@ int WereWolf::getArmor()
 std::string WereWolf::getName()
 {
     return this->name;
+}
+
+/*******************************************************************************
+** Description: WereWolf:getCharacterType() returns "Monster" as type
+*********************************************************************************/
+std::string WereWolf::getCharacterType()
+{
+    return this->characterType;
 }

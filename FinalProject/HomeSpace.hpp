@@ -9,6 +9,7 @@
 
 #include "Space.hpp"
 #include "Character.hpp"
+#include "MainCharacter.hpp"
 #include <string>
 
 using std::string;
@@ -21,13 +22,13 @@ private:
     Space *bottom;
     Space *left;
     Space *right;
-    Space *currentSpace;
     string spaceName;
+    string spaceType;
+    int counter;
     
 public:
     HomeSpace();
     ~HomeSpace();
-    void heal(Character&);
     Space *getTop();
     void setTop(Space*);
     Space *getBottom();
@@ -36,10 +37,12 @@ public:
     void setLeft(Space*);
     Space *getRight();
     void setRight(Space*);
-    Space *getCurrentSpsace();
-    void setCurrentSpace(Space*);
+    Space *getCurrentSpace();
     string getSpaceName();
-    //void setSpaceName(string);
+    string getSpaceType();
+    int getCounter();
+    void performSpaceAction();
+    void performSpaceAction(MainCharacter&);
 };
 
 #endif /* HomeSpace_hpp */

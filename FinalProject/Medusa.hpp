@@ -18,14 +18,18 @@ private:
     int armor;
     int strength;
     string name;
+    string characterType;
+    
 public:
     Medusa();
     ~Medusa();
     int attackAction();
     int defendAction();
     int getStrength();
+    void setStrength(int);
     int getArmor();
     string getName();
+    string getCharacterType();
 };
 
 #endif /* Medusa_hpp */

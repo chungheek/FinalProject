@@ -17,6 +17,8 @@ MonsterSpace::MonsterSpace(Character *monst, string name)
 {
     this->spaceName = name;
     this->monster = monst;
+    this->spaceType = "MonsterSpace";
+    this->counter = 0;
 }
 
 /****************************************************************************************
@@ -93,17 +95,9 @@ void MonsterSpace::setRight(Space* space)
 /********************************************************************************************
 ** Description: MonsterSpace::getCurrentSpace() returns the current space
 **********************************************************************************************/
-Space *MonsterSpace::getCurrentSpsace()
+Space *MonsterSpace::getCurrentSpace()
 {
-    return this->currentSpace;
-}
-
-/********************************************************************************************
-** Description: MonsterSpace::setCurrentSpace() sets the current space
-**********************************************************************************************/
-void MonsterSpace::setCurrentSpace(Space* space)
-{
-    this->currentSpace = space;
+    return this;
 }
 
 /********************************************************************************************
@@ -114,3 +108,26 @@ std::string MonsterSpace::getSpaceName()
     return this->spaceName;
 }
 
+/********************************************************************************************
+** Description: MonsterSpace::getSpaceType() returns the type of current space
+**********************************************************************************************/
+string MonsterSpace::getSpaceType()
+{
+    return this->spaceType;
+}
+
+/********************************************************************************************
+** Description: MonsterSpace::getCounter returns the counter member variable
+**********************************************************************************************/
+int MonsterSpace::getCounter()
+{
+    return this->counter;
+}
+
+/********************************************************************************************
+** Description: MonsterSpace::performSpaceAction() returns the type of current space
+**********************************************************************************************/
+void MonsterSpace::performSpaceAction()
+{
+    
+}
