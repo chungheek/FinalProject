@@ -26,6 +26,10 @@ MainCharacter::MainCharacter()
     this->name = "MainCharacter";
     this->inventory.reserve(10); // Sets inventory capacity to 10
     this->characterType = "Main";
+    for(item : inventory)
+    {
+        item = NULL;
+    }
 }
 
 /*******************************************************************************
@@ -176,4 +180,37 @@ bool MainCharacter::useJetFuel()
         useFuel = false;
     }
     return useFuel;
+}
+
+/*******************************************************************************
+** Description: MainCharacter::storeItem() will allow a user to store an item
+*********************************************************************************/
+void MainCharacter::storeItem(Item &item)
+{
+    if(inventory[inventory.end - 1] != NULL)
+    {
+        inventory.push_back(item);
+    }
+    else
+    {
+        cout << "There is no space in your inventory. Please remove an item." << endl;
+    }
+    
+}
+
+/*******************************************************************************
+** Description: MainCharacter::removeItem() will allow a user to remove an item
+*********************************************************************************/
+void MainCharacter::removeItem()
+{
+    cout << "Please select an Item to remove: " << endl;
+    for(int i=0; i < inventory.size(); i++)
+    {
+        cout << (i+1) << ". " << inventory[i].getItemName << endl;
+    }
+    int selection;
+    cin >> selection; //TODO need to place integer validator here. 
+
+    cout << "Removing  " << inventory[selection-1].getItemName << endl;
+    inventory.erase(inventory.begin() + (selection-1);
 }

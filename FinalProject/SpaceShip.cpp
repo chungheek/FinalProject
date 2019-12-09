@@ -132,3 +132,35 @@ void SpaceShip::performSpaceAction()
     cout << "The spaceship is worn but seems functional. Right nows there seems to be 1 out of 5 jetfuel cells. There's a weird text on the screen that seems like needing to be deciphered" << endl;
     cout << "'bx uxwp jwm cqjwtb oxa juu cqn orbq'" << endl;
 }
+
+/********************************************************************************************
+** Description: SpaceShip::getItem() returns Item member variable associated with the space
+**********************************************************************************************/
+Item SpaceShip::getItem()
+{
+    return this->item;
+}
+
+/********************************************************************************************
+** Description: SpaceShip::setItem() sets the item member variable associated with the space
+**********************************************************************************************/
+void SpaceShip::setItem(Item &itm)
+{
+    this->item = itm;
+}
+
+/************************************************************************************************
+** Description: SpaceShip::getJetFuel() returns jetFuel member variable associated with the space
+**********************************************************************************************/
+Item SpaceShip::getJetFuel()
+{
+    return this->jetFuel;
+}
+
+/************************************************************************************************
+** Description: SpaceShip::setJetFuel sets the jetFuel member variable associated with the space
+**********************************************************************************************/
+void SpaceShip::setJetFuel(Item &itm)
+{
+    this->item = itm;
+}

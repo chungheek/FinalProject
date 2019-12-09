@@ -22,6 +22,8 @@ private:
     string spaceName;
     string spaceType;
     int counter;
+    Item item;
+    Item jetFuel;
     
 public:
     SpaceShip();
@@ -40,6 +42,10 @@ public:
     string getSpaceType();
     int getCounter();
     void performSpaceAction();
+    Item getItem();
+    void setItem(Item&);
+    Item getJetFuel();
+    void setJetFuel(Item&);
 };
 
 #endif /* SpaceShip_hpp */

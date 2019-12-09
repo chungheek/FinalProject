@@ -17,6 +17,8 @@ HomeSpace::HomeSpace()
     this->spaceName = "Home";
     this->spaceType = "HomeSpace";
     this->counter = 0;
+    this->item = NULL;
+    this->jetFuel = NULL;
 }
 
 /****************************************************************************************
@@ -128,4 +130,36 @@ int HomeSpace::getCounter()
 void HomeSpace::performSpaceAction()
 {
     cout << "Welcome home!" << endl;
+}
+
+/********************************************************************************************
+** Description: HomeSpace::getItem() returns item member variable associated with the space
+**********************************************************************************************/
+Item HomeSpace::getItem()
+{
+    return this->item;
+}
+
+/********************************************************************************************
+** Description: HomeSpace::setItem() sets the item member variable associated with the space
+**********************************************************************************************/
+void HomeSpace::setItem(Item &itm)
+{
+    this->item = itm;
+}
+
+/************************************************************************************************
+** Description: HomeSpace::getJetFuel() returns jetFuel member variable associated with the space
+**********************************************************************************************/
+Item HomeSpace::getJetFuel()
+{
+    return this->jetFuel;
+}
+
+/************************************************************************************************
+** Description: HomeSpace::setJetFuel sets the jetFuel member variable associated with the space
+**********************************************************************************************/
+void HomeSpace::setJetFuel(Item &itm)
+{
+    this->item = itm;
 }
