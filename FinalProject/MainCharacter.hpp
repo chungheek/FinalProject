@@ -43,6 +43,7 @@ public:
     void printInventory();
     bool useJetFuel();
     void storeItem(Item&);
+    void removeItem();
 };
 
 #endif /* MainCharacter_hpp */

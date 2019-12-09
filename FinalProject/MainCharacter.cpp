@@ -191,4 +191,26 @@ void MainCharacter::storeItem(Item &item)
     {
         inventory.push_back(item);
     }
+    else
+    {
+        cout << "There is no space in your inventory. Please remove an item." << endl;
+    }
+    
+}
+
+/*******************************************************************************
+** Description: MainCharacter::removeItem() will allow a user to remove an item
+*********************************************************************************/
+void MainCharacter::removeItem()
+{
+    cout << "Please select an Item to remove: " << endl;
+    for(int i=0; i < inventory.size(); i++)
+    {
+        cout << (i+1) << ". " << inventory[i].getItemName << endl;
+    }
+    int selection;
+    cin >> selection; //TODO need to place integer validator here. 
+
+    cout << "Removing  " << inventory[selection-1].getItemName << endl;
+    inventory.erase(inventory.begin() + (selection-1);
 }
