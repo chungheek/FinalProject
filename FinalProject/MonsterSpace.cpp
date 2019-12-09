@@ -25,6 +25,8 @@ MonsterSpace::MonsterSpace(Character *monst, MainCharacter& main, string name)
     this->mainCharacter = main;
     this->spaceType = "MonsterSpace";
     this->counter = 0;
+    this->item = NULL;
+    this->jetFuel = NULL;
 }
 
 /****************************************************************************************
@@ -188,4 +190,36 @@ void MonsterSpace::combatGame()
            break;
        }
     }
+}
+
+/********************************************************************************************
+** Description: MonsterSpace::getItem() returns Item member variable associated with the space
+**********************************************************************************************/
+Item MonsterSpace::getItem()
+{
+    return this->item;
+}
+
+/********************************************************************************************
+** Description: MonsterSpace::setItem() sets the item member variable associated with the space
+**********************************************************************************************/
+void MonsterSpace::setItem(Item &itm)
+{
+    this->item = itm;
+}
+
+/************************************************************************************************
+** Description: MonsterSpace::getJetFuel() returns jetFuel member variable associated with the space
+**********************************************************************************************/
+Item MonsterSpace::getJetFuel()
+{
+    return this->jetFuel;
+}
+
+/************************************************************************************************
+** Description: MonsterSpace::setJetFuel sets the jetFuel member variable associated with the space
+**********************************************************************************************/
+void MonsterSpace::setJetFuel(Item &itm)
+{
+    this->item = itm;
 }

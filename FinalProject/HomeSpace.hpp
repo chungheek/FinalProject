@@ -10,6 +10,7 @@
 #include "Space.hpp"
 #include "Character.hpp"
 #include "MainCharacter.hpp"
+#include "Item.hpp"
 #include <string>
 
 using std::string;
@@ -25,6 +26,8 @@ private:
     string spaceName;
     string spaceType;
     int counter;
+    Item item;
+    Item jetFuel;
     
 public:
     HomeSpace();
@@ -43,6 +46,10 @@ public:
     int getCounter();
     void performSpaceAction();
     void performSpaceAction(MainCharacter&);
+    Item getItem();
+    void setItem(Item&);
+    Item getJetFuel();
+    void setJetFuel(Item&);
 };
 
 #endif /* HomeSpace_hpp */

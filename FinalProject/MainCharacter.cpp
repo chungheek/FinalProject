@@ -26,6 +26,10 @@ MainCharacter::MainCharacter()
     this->name = "MainCharacter";
     this->inventory.reserve(10); // Sets inventory capacity to 10
     this->characterType = "Main";
+    for(item : inventory)
+    {
+        item = NULL;
+    }
 }
 
 /*******************************************************************************
@@ -176,4 +180,15 @@ bool MainCharacter::useJetFuel()
         useFuel = false;
     }
     return useFuel;
+}
+
+/*******************************************************************************
+** Description: MainCharacter::storeItem() will allow a user to store an item
+*********************************************************************************/
+void MainCharacter::storeItem(Item &item)
+{
+    if(inventory[inventory.end - 1] != NULL)
+    {
+        inventory.push_back(item);
+    }
 }

@@ -24,6 +24,8 @@ private:
     string spaceName;
     string spaceType;
     int counter;
+    Item item;
+    Item jetFuel;
     
 public:
     ClueSpace(string,string);
@@ -43,6 +45,10 @@ public:
     void setClue(string);
     int getCounter();
     void performSpaceAction();
+    Item getItem();
+    void setItem(Item&);
+    Item getJetFuel();
+    void setJetFuel(Item&);
 };
 
 #endif /* ClueSpace_hpp */

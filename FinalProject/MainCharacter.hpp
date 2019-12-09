@@ -42,6 +42,7 @@ public:
     void setCurrentSpace(Space*);
     void printInventory();
     bool useJetFuel();
+    void storeItem(Item&);
 };
 
 #endif /* MainCharacter_hpp */

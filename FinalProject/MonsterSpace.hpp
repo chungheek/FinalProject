@@ -10,6 +10,7 @@
 #include "Space.hpp"
 #include "Character.hpp"
 #include "MainCharacter.hpp"
+#include "Item.hpp"
 #include <string>
 
 using std::string;
@@ -26,6 +27,8 @@ private:
     Character *monster;
     MainCharacter mainCharacter;
     int counter;
+    Item item;
+    Item jetFuel;
     
 public:
     MonsterSpace(Character*, MainCharacter&, string);
@@ -44,6 +47,11 @@ public:
     int getCounter();
     void performSpaceAction();
     void combatGame();
+    Item getItem();
+    void setItem(Item&);
+    Item getJetFuel();
+    void setJetFuel(Item&);
+    
 };
 
 #endif /* MonsterSpace_hpp */
