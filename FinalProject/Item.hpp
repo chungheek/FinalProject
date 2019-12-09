@@ -20,6 +20,7 @@ private:
     string name;
     
 public:
+    Item();
     Item(int);
     string getItemName();
 };

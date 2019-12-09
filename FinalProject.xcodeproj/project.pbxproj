@@ -15,6 +15,7 @@
 		40526DE523962C0000A4BAD4 /* ClueSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40526DE323962C0000A4BAD4 /* ClueSpace.cpp */; };
 		40526DE823962C0C00A4BAD4 /* MonsterSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40526DE623962C0C00A4BAD4 /* MonsterSpace.cpp */; };
 		40526DEB2396301B00A4BAD4 /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40526DE92396301B00A4BAD4 /* Item.cpp */; };
+		40653D0A239F11FC00A3B675 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 40653D09239F11FC00A3B675 /* Makefile */; };
 		40B04FBE239B4AD200C65C2F /* WereWolf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40B04FBC239B4AD200C65C2F /* WereWolf.cpp */; };
 		40B04FC1239B687300C65C2F /* Frankenstein.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40B04FBF239B687300C65C2F /* Frankenstein.cpp */; };
 		40B04FC4239B688400C65C2F /* Medusa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40B04FC2239B688400C65C2F /* Medusa.cpp */; };
@@ -52,6 +53,7 @@
 		40526DE723962C0C00A4BAD4 /* MonsterSpace.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MonsterSpace.hpp; sourceTree = "<group>"; };
 		40526DE92396301B00A4BAD4 /* Item.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Item.cpp; sourceTree = "<group>"; };
 		40526DEA2396301B00A4BAD4 /* Item.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Item.hpp; sourceTree = "<group>"; };
+		40653D09239F11FC00A3B675 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		40B04FBC239B4AD200C65C2F /* WereWolf.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WereWolf.cpp; sourceTree = "<group>"; };
 		40B04FBD239B4AD200C65C2F /* WereWolf.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WereWolf.hpp; sourceTree = "<group>"; };
 		40B04FBF239B687300C65C2F /* Frankenstein.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Frankenstein.cpp; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		40BE9D032394D4E200802561 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				40653D09239F11FC00A3B675 /* Makefile */,
 				40BE9D042394D4E200802561 /* main.cpp */,
 				402CDB70239A15D900719310 /* Character.hpp */,
 				40526DD82395D94300A4BAD4 /* Vampire.cpp */,
@@ -104,8 +107,6 @@
 				40B04FC0239B687300C65C2F /* Frankenstein.hpp */,
 				4050AB57239C0D140022C0EC /* MainCharacter.cpp */,
 				4050AB58239C0D140022C0EC /* MainCharacter.hpp */,
-				40526DDD2395DEB700A4BAD4 /* Menu.cpp */,
-				40526DDE2395DEB700A4BAD4 /* Menu.hpp */,
 				40526DDC2395D99B00A4BAD4 /* Space.hpp */,
 				40526DE023962B0300A4BAD4 /* HomeSpace.cpp */,
 				40526DE123962B0300A4BAD4 /* HomeSpace.hpp */,
@@ -115,6 +116,8 @@
 				40526DE723962C0C00A4BAD4 /* MonsterSpace.hpp */,
 				402CDB6C2399FA8C00719310 /* SpaceShip.cpp */,
 				402CDB6D2399FA8C00719310 /* SpaceShip.hpp */,
+				40526DDD2395DEB700A4BAD4 /* Menu.cpp */,
+				40526DDE2395DEB700A4BAD4 /* Menu.hpp */,
 				40526DE92396301B00A4BAD4 /* Item.cpp */,
 				40526DEA2396301B00A4BAD4 /* Item.hpp */,
 			);
@@ -188,6 +191,7 @@
 				40526DE823962C0C00A4BAD4 /* MonsterSpace.cpp in Sources */,
 				402CDB6E2399FA8C00719310 /* SpaceShip.cpp in Sources */,
 				40526DE523962C0000A4BAD4 /* ClueSpace.cpp in Sources */,
+				40653D0A239F11FC00A3B675 /* Makefile in Sources */,
 				40526DE223962B0300A4BAD4 /* HomeSpace.cpp in Sources */,
 				40526DEB2396301B00A4BAD4 /* Item.cpp in Sources */,
 			);

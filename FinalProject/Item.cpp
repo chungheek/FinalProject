@@ -15,7 +15,14 @@ using std::cout;
 using std::endl;
 
 /*******************************************************************************
-** Description: Item::Item(int) default constructor for Item class object
+** Description: Item::Item() default constructor for Item class object
+*********************************************************************************/
+Item::Item()
+{
+}
+
+/*******************************************************************************
+** Description: Item::Item(int) another constructor for Item class object
 *********************************************************************************/
 Item::Item(int num)
 {
@@ -25,7 +32,6 @@ Item::Item(int num)
         healthPotion = 0;
         magicItem = 0;
         name = "Jet Fuel";
-        
     }
     if (num == 2)
     {
@@ -40,7 +46,6 @@ Item::Item(int num)
         healthPotion = 0;
         magicItem = 1;
         name = "Magic Item";
-        
     }
 }
 
