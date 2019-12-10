@@ -18,15 +18,13 @@ using std::cin;
 ** Description: MonsterSpace::MonsterSpace(Character) default constructor that
 **          takes in a monster character and that character is used for that space
 *******************************************************************************************/
-MonsterSpace::MonsterSpace(Character *monst, MainCharacter& main, string name)
+MonsterSpace::MonsterSpace(Character *monst, MainCharacter &main, string name)
 {
     this->spaceName = name;
     this->monster = monst;
-    this->mainCharacter = main;
+    this->mainCharacter = &main;
     this->spaceType = "MonsterSpace";
     this->counter = 0;
-    this->item = NULL;
-    this->jetFuel = NULL;
 }
 
 /****************************************************************************************
@@ -137,7 +135,15 @@ int MonsterSpace::getCounter()
 **********************************************************************************************/
 void MonsterSpace::performSpaceAction()
 {
-    combatGame();
+    if (counter == 0)
+    {
+        combatGame();
+    }
+    else
+    {
+        cout << "You have already defeated " << monster->getName() << "! Please move on..." << endl;
+    }
+    counter++;
 }
 
 /********************************************************************************
@@ -158,7 +164,7 @@ void MonsterSpace::combatGame()
        int armor = 0;
        int newStrength = 0;
        // Where player 1 attacks
-       attack = mainCharacter.attackAction();
+       attack = mainCharacter->attackAction();
        defend = monster->defendAction();
        armor = monster->getArmor();
        totalDamage = attack - defend - armor;
@@ -169,24 +175,25 @@ void MonsterSpace::combatGame()
        {
            //cout << "Player 2's strength is at 0, Player 1 has won the round!" << endl;
 
-           cout << mainCharacter.getName() << " won!" << endl;
-           cout << "Current Strength: " << mainCharacter.getStrength() << endl;
+           cout << mainCharacter->getName() << " won!" << endl;
+           cout << "Current Strength: " << mainCharacter->getStrength() << endl;
            break;
        }
       // Where Player 2 attacks
        attack = monster->attackAction();
-       defend = mainCharacter.defendAction();
-       armor = mainCharacter.getArmor();
+       defend = mainCharacter->defendAction();
+       armor = mainCharacter->getArmor();
        totalDamage = attack - defend - armor;
        if(totalDamage<=0){totalDamage=0;};
-       newStrength = mainCharacter.getStrength() - totalDamage;
-       mainCharacter.setStrength(newStrength);
-       if(mainCharacter.getStrength() <= 0)
+       newStrength = mainCharacter->getStrength() - totalDamage;
+       mainCharacter->setStrength(newStrength);
+       if(mainCharacter->getStrength() <= 0)
        {
            //cout << "Player 1's strength is at 0, Player 2 has won the round!" << endl;
 
            cout << monster->getName() << " won!" << endl;
            cout << "You have died!" << endl;
+           mainCharacter->setStillAlive(false);
            break;
        }
     }
@@ -221,5 +228,5 @@ Item MonsterSpace::getJetFuel()
 **********************************************************************************************/
 void MonsterSpace::setJetFuel(Item &itm)
 {
-    this->item = itm;
+    this->jetFuel = itm;
 }

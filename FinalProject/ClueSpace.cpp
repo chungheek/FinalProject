@@ -23,8 +23,6 @@ ClueSpace::ClueSpace(string name, string c)
     this->clue = c;
     this->spaceType = "ClueSpace";
     this->counter = 0;
-    this->item = NULL;
-    this->jetFuel = NULL;
 }
 
 /****************************************************************************************
@@ -153,6 +151,7 @@ int ClueSpace::getCounter()
 void ClueSpace::performSpaceAction()
 {
     cout << getClue() << endl;
+    counter++;
 }
 
 /********************************************************************************************
@@ -184,5 +183,5 @@ Item ClueSpace::getJetFuel()
 **********************************************************************************************/
 void ClueSpace::setJetFuel(Item &itm)
 {
-    this->item = itm;
+    this->jetFuel = itm;
 }

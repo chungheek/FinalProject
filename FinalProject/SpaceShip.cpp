@@ -162,5 +162,5 @@ Item SpaceShip::getJetFuel()
 **********************************************************************************************/
 void SpaceShip::setJetFuel(Item &itm)
 {
-    this->item = itm;
+    this->jetFuel = itm;
 }

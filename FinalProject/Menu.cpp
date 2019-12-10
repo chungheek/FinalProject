@@ -30,31 +30,33 @@ int Menu::menu()
 {
     int num;
     cout << "| Please select an action |" << endl;
-    cout << "---------------------" << endl;
+    cout << "----------------------" << endl;
     cout << "| 1. Go up           |" << endl;
     cout << "| 2. Go down         |" << endl;
     cout << "| 3. Go left         |" << endl;
     cout << "| 4. Go right        |" << endl;
     cout << "| 5. Print Map       |" << endl;
     cout << "| 6. Print Inventory |" << endl;
+    cout << "| 7. Remove Item     |" << endl;
     cout << "----------------------" << endl;
     
     bool trueOrFalse = false;
     do
     {
         cin >> num;
-        if (num <= 0 || num >= 7 || cin.get() != '\n' || cin.fail())
+        if (num <= 0 || num >= 8 || cin.get() != '\n' || cin.fail())
         {
             cout << "Try again! Please select one of the following options:" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "---------------------" << endl;
+            cout << "----------------------" << endl;
             cout << "| 1. Go up           |" << endl;
             cout << "| 2. Go down         |" << endl;
             cout << "| 3. Go left         |" << endl;
             cout << "| 4. Go right        |" << endl;
             cout << "| 5. Print Map       |" << endl;
             cout << "| 6. Print Inventory |" << endl;
+            cout << "| 7. Remove Item     |" << endl;
             cout << "----------------------" << endl;
         }
         else
@@ -93,6 +95,33 @@ int Menu::play()
     return yOrN;
 }
 
+/**********************************************************************************
+** Description: Menu::playAgain() prompts the user to play the game again
+***********************************************************************************/
+int Menu::playAgain()
+{
+    int yOrN;
+       cout << "1. Play again?" << endl;
+       cout << "2. Exit game" << endl;
+       bool trueOrFalse = false;
+       do
+       {
+          cin >> yOrN;
+          if (yOrN <= 0 || yOrN >= 3 || cin.get() != '\n' || cin.fail())
+          {
+              cout << "Try again! 1. Play again or 2. Exit game" << endl;
+              cin.clear();
+              cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          }
+          else
+          {
+              trueOrFalse = true;
+          }
+       }while(trueOrFalse != true);
+    
+    return yOrN;
+}
+
 /***********************************************************************
 ** Description: Menu::integerValidator prompts user to select
 **          an integer and will not allow for anything else.
@@ -110,6 +139,32 @@ int Menu::integerValidator()
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Try again! Please enter an integer" << endl;
+        }
+        else
+        {
+            trueOrFalse = true;
+        }
+    }while(trueOrFalse != true);
+    return val;
+}
+
+/***********************************************************************
+** Description: Menu::integerValidator(low, high) prompts user to
+**         select an integer between low and high numbers.
+*************************************************************************/
+int Menu::integerValidator(int low, int high)
+{
+    int val;
+    bool trueOrFalse = false;
+    //cout << "Please enter an integer" << endl;
+    do
+    {
+        cin >> val;
+        if(cin.fail() || cin.get() != '\n' || (val < low && val > high))
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Try again! Please enter an integer between " << low << " and " << high << endl;
         }
         else
         {

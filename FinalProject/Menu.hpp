@@ -16,7 +16,9 @@ private:
 public:
     int menu();
     int play();
+    int playAgain();
     int integerValidator();
+    int integerValidator(int,int);
     string stringValidator();
     int yesOrNo();
     void printMap(int);

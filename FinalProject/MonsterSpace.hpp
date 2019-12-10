@@ -25,7 +25,7 @@ private:
     string spaceName;
     string spaceType;
     Character *monster;
-    MainCharacter mainCharacter;
+    MainCharacter *mainCharacter;
     int counter;
     Item item;
     Item jetFuel;
@@ -51,7 +51,6 @@ public:
     void setItem(Item&);
     Item getJetFuel();
     void setJetFuel(Item&);
-    
 };
 
 #endif /* MonsterSpace_hpp */

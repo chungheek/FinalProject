@@ -15,7 +15,6 @@
 		40526DE523962C0000A4BAD4 /* ClueSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40526DE323962C0000A4BAD4 /* ClueSpace.cpp */; };
 		40526DE823962C0C00A4BAD4 /* MonsterSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40526DE623962C0C00A4BAD4 /* MonsterSpace.cpp */; };
 		40526DEB2396301B00A4BAD4 /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40526DE92396301B00A4BAD4 /* Item.cpp */; };
-		40653D0A239F11FC00A3B675 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 40653D09239F11FC00A3B675 /* Makefile */; };
 		40B04FBE239B4AD200C65C2F /* WereWolf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40B04FBC239B4AD200C65C2F /* WereWolf.cpp */; };
 		40B04FC1239B687300C65C2F /* Frankenstein.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40B04FBF239B687300C65C2F /* Frankenstein.cpp */; };
 		40B04FC4239B688400C65C2F /* Medusa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40B04FC2239B688400C65C2F /* Medusa.cpp */; };
@@ -191,7 +190,6 @@
 				40526DE823962C0C00A4BAD4 /* MonsterSpace.cpp in Sources */,
 				402CDB6E2399FA8C00719310 /* SpaceShip.cpp in Sources */,
 				40526DE523962C0000A4BAD4 /* ClueSpace.cpp in Sources */,
-				40653D0A239F11FC00A3B675 /* Makefile in Sources */,
 				40526DE223962B0300A4BAD4 /* HomeSpace.cpp in Sources */,
 				40526DEB2396301B00A4BAD4 /* Item.cpp in Sources */,
 			);

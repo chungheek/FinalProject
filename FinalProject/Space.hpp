@@ -24,8 +24,11 @@ protected:
     string spaceName;
     string spaceType;
     int counter;
+    Item item;
+    Item jetFuel;
     
 public:
+    virtual ~Space() = default;
     virtual Space *getTop() = 0;
     virtual void setTop(Space*) = 0;
     virtual Space *getBottom() = 0;
@@ -39,6 +42,10 @@ public:
     virtual string getSpaceType() = 0;
     virtual int getCounter() = 0;
     virtual void performSpaceAction() = 0;
+    virtual Item getItem() = 0;
+    virtual void setItem(Item&) = 0;
+    virtual Item getJetFuel() = 0;
+    virtual void setJetFuel(Item&) = 0;
 };
 
 #endif /* Space_h */

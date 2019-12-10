@@ -26,6 +26,7 @@ private:
     vector<Item> inventory; // Container for player to carry items with
     Space *currentSpace;
     string characterType;
+    bool stillAlive;
     
 public:
     MainCharacter();
@@ -44,6 +45,8 @@ public:
     bool useJetFuel();
     void storeItem(Item&);
     void removeItem();
+    bool getStillAlive();
+    void setStillAlive(bool);
 };
 
 #endif /* MainCharacter_hpp */

@@ -17,8 +17,6 @@ HomeSpace::HomeSpace()
     this->spaceName = "Home";
     this->spaceType = "HomeSpace";
     this->counter = 0;
-    this->item = NULL;
-    this->jetFuel = NULL;
 }
 
 /****************************************************************************************
@@ -161,5 +159,5 @@ Item HomeSpace::getJetFuel()
 **********************************************************************************************/
 void HomeSpace::setJetFuel(Item &itm)
 {
-    this->item = itm;
+    this->jetFuel = itm;
 }

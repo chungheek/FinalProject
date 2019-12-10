@@ -5,6 +5,7 @@
 ***************************************************************************************/
 
 #include "MainCharacter.hpp"
+#include "Menu.hpp"
 #include <cstdlib>
 #include <string>
 #include <iostream>
@@ -21,11 +22,12 @@ using std::endl;
 *********************************************************************************/
 MainCharacter::MainCharacter()
 {
-    this->armor = 10;
-    this->strength = 20;
+    this->armor = 5;
+    this->strength = 5;
     this->name = "MainCharacter";
     this->inventory.reserve(10);
     this->characterType = "Main";
+    this->stillAlive = true;
 }
 
 /*******************************************************************************
@@ -37,7 +39,7 @@ MainCharacter::~MainCharacter()
 
 /*******************************************************************************
 ** Description: MainCharacter::attackAction() returns a random integer between
-**              values of 1 and 20 for the number of sides of a die.
+**              values of 1 and 7 for the number of sides of a die.
 *********************************************************************************/
 int MainCharacter::attackAction()
 {
@@ -47,7 +49,7 @@ int MainCharacter::attackAction()
 
 /*******************************************************************************
 ** Description: MainCharacter::defendAction() returns a random integer between
-**              values of 1 and 10 for the number of sides of a die.
+**              values of 1 and 7 for the number of sides of a die.
 *********************************************************************************/
 int MainCharacter::defendAction()
 {
@@ -192,22 +194,47 @@ void MainCharacter::storeItem(Item &item)
     {
         cout << "There is no space in your inventory. Please remove an item." << endl;
     }
-    
 }
 
-/*******************************************************************************
+/****************************************************************************************
 ** Description: MainCharacter::removeItem() will allow a user to remove an item
-*********************************************************************************/
+*****************************************************************************************/
 void MainCharacter::removeItem()
 {
-    cout << "Please select an Item to remove: " << endl;
-    for(int i=0; i < inventory.size(); i++)
+    Menu menu;
+    if(!inventory.empty())
     {
-        cout << (i+1) << ". " << inventory[i].getItemName() << endl;
-    }
-    int selection;
-    cin >> selection; //TODO need to place integer validator here. 
+        cout << "Please select an Item to remove: " << endl;
+        for(int i=0; i < inventory.size(); i++)
+        {
+            cout << (i+1) << ". " << inventory[i].getItemName() << endl;
+        }
+        
+        int size = static_cast<int>(inventory.size());
+        int selection = menu.integerValidator(1, size);
 
-    cout << "Removing  " << inventory[selection-1].getItemName() << endl;
-    inventory.erase(inventory.begin() + (selection-1));
+        cout << "Removing  " << inventory[selection-1].getItemName() << endl;
+        inventory.erase(inventory.begin() + (selection-1));
+    }
+    else
+    {
+        cout << "The Inventory is empty! No items to remove!" << endl;
+    }
+}
+
+/*****************************************************************************************
+** Description: MainCharacter::getStillAlive() will return a boolean indicating whether
+**          or not the mainCharacter is still alive.
+******************************************************************************************/
+bool MainCharacter::getStillAlive()
+{
+    return this->stillAlive;
+}
+
+/*****************************************************************************************
+** Description: MainCharacter::setStillAlive() will set stillAlive to a new boolean
+******************************************************************************************/
+void MainCharacter::setStillAlive(bool alive)
+{
+    this->stillAlive = alive;
 }

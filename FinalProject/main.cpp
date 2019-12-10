@@ -1,7 +1,11 @@
 /************************************************************************************************
 ** Author: Chunghee Kim
 ** Date: 12/01/2019
-** Description: Main file for MonsterPlanet takes in the following classes:
+** Description: Main file for MonsterPlanet is a turn based strategy game that is
+**          inspired by OSU CS162's Fantasy Combat assignment and theme's from
+**          HitchHiker's Guide to the Galaxy. This is a survival/strategy game and the
+**          point is to not be killed by one of the monster's and safely escape on a
+**          a spaceship.
 ************************************************************************************************/
 
 #include <iostream>
@@ -43,8 +47,8 @@ int main()
     bool keepPlaying = true;
     while (keepPlaying && yOrN == 1)
     {
-        string message = "Welcome to Monster Planet...You have crash landed on this nightmare of a planet and must find a way to escape this estranged world....\n";
-        slow_print(message, 30);
+        string message = "Welcome to Monster Planet...You have crash landed on this nightmare of a planet and must find a way to escape this estranged world...You were surveying the planet before crashing so use the map that you laid out to help you escape...\n";
+        slow_print(message, 0);
         
         // Istantiate MainCharacter class object
         MainCharacter mainCharacter;
@@ -70,7 +74,16 @@ int main()
         
         Space *spaceShip = new SpaceShip();
         
-        // Setup the map
+        // Setup the items, spaces, and the map
+        Item healthB42(2);
+        Item healthC42(2);
+        
+        Item jetFuelWw(1);
+        Item jetFuelFr(1);
+        Item jetFuelVamp(1);
+        Item jetFuelMed(1);
+        
+        
         homeSpace->setBottom(townA42);
         homeSpace->setTop(nullptr);
         homeSpace->setLeft(nullptr);
@@ -85,40 +98,47 @@ int main()
         townB42->setLeft(townA42);
         townB42->setBottom(frankensteinLab);
         townB42->setRight(nullptr);
+        townB42->setItem(healthB42);
         
         townC42->setTop(vampireCastle);
         townC42->setBottom(medusaCave);
         townC42->setRight(townA42);
         townC42->setLeft(nullptr);
+        townC42->setItem(healthC42);
         
         vampireCastle->setBottom(townC42);
         vampireCastle->setTop(nullptr);
         vampireCastle->setLeft(nullptr);
         vampireCastle->setRight(nullptr);
+        vampireCastle->setJetFuel(jetFuelVamp);
         
         medusaCave->setTop(townC42);
         medusaCave->setBottom(nullptr);
         medusaCave->setLeft(nullptr);
         medusaCave->setRight(nullptr);
+        medusaCave->setJetFuel(jetFuelMed);
         
         woods->setBottom(townB42);
         woods->setTop(nullptr);
         woods->setLeft(nullptr);
         woods->setRight(nullptr);
+        woods->setJetFuel(jetFuelWw);
         
         frankensteinLab->setTop(townB42);
         frankensteinLab->setBottom(nullptr);
         frankensteinLab->setLeft(nullptr);
         frankensteinLab->setRight(nullptr);
+        frankensteinLab->setJetFuel(jetFuelFr);
         
         spaceShip->setTop(townA42);
         spaceShip->setBottom(nullptr);
         spaceShip->setLeft(nullptr);
         spaceShip->setRight(nullptr);
         
+        // Start out at the crash site or at [Home]
         mainCharacter.setCurrentSpace(homeSpace);
         string message2 = mainCharacter.getName() + ", please use the map to gain clues and figure out how to leave this land.\n";
-        slow_print(message2, 30);
+        slow_print(message2, 0);
         
         while(keepPlaying)
         {
@@ -216,9 +236,39 @@ int main()
             {
                 mainCharacter.printInventory();
             }
-            
+            if(mainMenu == 7)
+            {
+                mainCharacter.removeItem();
+            }
         }
-        
+        yOrN = menu.playAgain();
+       
+        delete homeSpace;
+        homeSpace = nullptr;
+        delete vampire;
+        vampire = nullptr;
+        delete vampireCastle;
+        vampireCastle = nullptr;
+        delete medusa;
+        medusa = nullptr;
+        delete medusaCave;
+        medusaCave = nullptr;
+        delete wereWolf;
+        wereWolf = nullptr;
+        delete woods;
+        woods = nullptr;
+        delete frankenstein;
+        frankenstein = nullptr;
+        delete frankensteinLab;
+        frankensteinLab = nullptr;
+        delete townA42;
+        townA42 = nullptr;
+        delete townB42;
+        townB42 = nullptr;
+        delete townC42;
+        townC42 = nullptr;
+        delete spaceShip;
+        spaceShip = nullptr;
     }
     
     
@@ -231,7 +281,7 @@ int main()
 /********************************************************************************************************
 ** Description: performAction() helper function performs the space action of the current space
 *********************************************************************************************************/
-void performSpaceAction(MainCharacter& mainCharacter, bool& play)
+void performSpaceAction(MainCharacter &mainCharacter, bool& play)
 {
     Menu menu;
     if(mainCharacter.getCurrentSpace()->getSpaceType() == "HomeSpace")
@@ -245,7 +295,17 @@ void performSpaceAction(MainCharacter& mainCharacter, bool& play)
     if(mainCharacter.getCurrentSpace()->getSpaceType() == "MonsterSpace")
     {
        mainCharacter.getCurrentSpace()->performSpaceAction();
-    
+       if(mainCharacter.getStillAlive() == false)
+       {
+           cout << "The game is over" << endl;
+           play = false;
+       }
+       if(mainCharacter.getCurrentSpace()->getCounter() <= 1 && mainCharacter.getStillAlive() == true)
+       {
+           cout << "The monster dropped some Jet Fuel!" << endl;
+           Item jetFuel = mainCharacter.getCurrentSpace()->getJetFuel();
+           mainCharacter.storeItem(jetFuel);
+       }
     }
     if(mainCharacter.getCurrentSpace()->getSpaceType() == "SpaceshipSpace")
     {
