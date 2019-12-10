@@ -3,9 +3,9 @@
 ** Date: 12/01/2019
 ** Description: Main file for MonsterPlanet is a turn based strategy game that is
 **          inspired by OSU CS162's Fantasy Combat assignment and theme's from
-**          HitchHiker's Guide to the Galaxy. This is a survival/strategy game and the
-**          point is to not be killed by one of the monster's and safely escape on a
-**          a spaceship.
+**          HitchHiker's Guide to the Galaxy. This is a puzzle/survival/strategy game and
+**          the point of the game is to not be killed by one of the monster's and safely
+**          escape on a spaceship.
 ************************************************************************************************/
 
 #include <iostream>
@@ -42,14 +42,13 @@ void slow_print(const string&, unsigned int);
 
 int main()
 {
+    string message = "Welcome to Monster Planet...You have crash landed on this nightmare of a planet and must fight monsters and find a way to escape this estranged world...You were surveying the planet before crashing so use the map that you laid out to help you escape...\n";
+    slow_print(message, 100);
     Menu menu;
     int yOrN = menu.play();
-    bool keepPlaying = true;
-    while (keepPlaying && yOrN == 1)
+
+    while (true && yOrN == 1)
     {
-        string message = "Welcome to Monster Planet...You have crash landed on this nightmare of a planet and must find a way to escape this estranged world...You were surveying the planet before crashing so use the map that you laid out to help you escape...\n";
-        slow_print(message, 0);
-        
         // Istantiate MainCharacter class object
         MainCharacter mainCharacter;
         cout << "Please select a name for your character: " << endl;
@@ -68,7 +67,7 @@ int main()
         Character *frankenstein = new Frankenstein();
         Space *frankensteinLab = new MonsterSpace(frankenstein, mainCharacter, "Frankenstein's Lab");
         
-        Space *townA42 = new ClueSpace("A42", "Welcome to town A42! As you can see there seems to be a spaceship on the map. Perhaps you can use that to escape? It's rumoured that the monsters withold jetfuel...\n Fun Fact: the towns people of A42 love Caesar Salad");
+        Space *townA42 = new ClueSpace("A42", "Welcome to town A42! As you can see there seems to be a spaceship on the map. Perhaps you can use that to escape? It's rumoured that the monsters withold jetfuel...\n Fun Fact: the towns people of A42 love Caesar Salad and fish on their salad");
         Space *townB42 = new ClueSpace("B42", "Welcome to town B42, we are in need of your help! The big wolf in the woods and frankenstein's monster terrorizes both sides of the city! Please help us defeat them!\n Fun Fact: the towns people of B42 love the fact that there are NINE realms on Monster Planet...just not the monsters part...");
         Space *townC42 = new ClueSpace("C42", "Welcome to town C42, the Vampire and Medusa completely rule these lands and we need help! Please help us defeat them! But be warned they are incredibly strong!\n Fun Fact: the towns people of C42 were masters of encryption, but they do not share their secrets with anyone.");
         
@@ -77,17 +76,23 @@ int main()
         // Setup the items, spaces, and the map
         Item healthB42(2);
         Item healthC42(2);
+        Item healthHome(2);
         
+        // The 4 jetFuel items needed to get off the planet
         Item jetFuelWw(1);
         Item jetFuelFr(1);
         Item jetFuelVamp(1);
         Item jetFuelMed(1);
         
+        // Magic items to boost strength
+        Item wereWolfFang(3);
+        Item frankenSteinArmor(3);
         
         homeSpace->setBottom(townA42);
         homeSpace->setTop(nullptr);
         homeSpace->setLeft(nullptr);
         homeSpace->setRight(nullptr);
+        homeSpace->setItem(healthHome);
         
         townA42->setTop(homeSpace);
         townA42->setLeft(townC42);
@@ -123,12 +128,14 @@ int main()
         woods->setLeft(nullptr);
         woods->setRight(nullptr);
         woods->setJetFuel(jetFuelWw);
+        woods->setItem(wereWolfFang);
         
         frankensteinLab->setTop(townB42);
         frankensteinLab->setBottom(nullptr);
         frankensteinLab->setLeft(nullptr);
         frankensteinLab->setRight(nullptr);
         frankensteinLab->setJetFuel(jetFuelFr);
+        frankensteinLab->setItem(frankenSteinArmor);
         
         spaceShip->setTop(townA42);
         spaceShip->setBottom(nullptr);
@@ -137,9 +144,10 @@ int main()
         
         // Start out at the crash site or at [Home]
         mainCharacter.setCurrentSpace(homeSpace);
-        string message2 = mainCharacter.getName() + ", please use the map to gain clues and figure out how to leave this land.\n";
-        slow_print(message2, 0);
+        string message2 = mainCharacter.getName() + ", please use the map to gain clues, fight monsters, and figure out how to leave this planet.\n";
+        slow_print(message2, 100);
         
+        bool keepPlaying = true;
         while(keepPlaying)
         {
             int mainMenu = menu.menu();
@@ -147,7 +155,7 @@ int main()
             {
                 if(mainCharacter.getCurrentSpace()->getTop() == nullptr)
                 {
-                    cout << "Can not go top! Choose again." << endl;
+                    cout << "Can not go up! Choose again." << endl;
                 }
                 else
                 {
@@ -240,6 +248,14 @@ int main()
             {
                 mainCharacter.removeItem();
             }
+            if(mainMenu == 8)
+            {
+                mainCharacter.useHealthPotion();
+            }
+            if(mainMenu == 9)
+            {
+                cout << "Current strength: " << mainCharacter.getStrength() << endl;
+            }
         }
         yOrN = menu.playAgain();
        
@@ -271,8 +287,7 @@ int main()
         spaceShip = nullptr;
     }
     
-    
-    cout << "Exiting game, goodbye" << endl;
+    cout << "Thank you for playing Monster Planet! Exiting game, goodbye" << endl;
     
     return 0;
 }
@@ -286,26 +301,65 @@ void performSpaceAction(MainCharacter &mainCharacter, bool& play)
     Menu menu;
     if(mainCharacter.getCurrentSpace()->getSpaceType() == "HomeSpace")
     {
-       mainCharacter.getCurrentSpace()->performSpaceAction();
+        mainCharacter.getCurrentSpace()->performSpaceAction();
+        if(mainCharacter.getCurrentSpace()->getCounter() == 2)
+        {
+            cout << "You have found a Health Potion at home!" << endl;
+            Item health = mainCharacter.getCurrentSpace()->getItem();
+            mainCharacter.storeItem(health);
+        }
     }
     if(mainCharacter.getCurrentSpace()->getSpaceType() == "ClueSpace")
     {
-       mainCharacter.getCurrentSpace()->performSpaceAction();
+        mainCharacter.getCurrentSpace()->performSpaceAction();
+        if(mainCharacter.getCurrentSpace()->getSpaceName() == "B42" && mainCharacter.getCurrentSpace()->getCounter() <= 1)
+        {
+           cout << "You have received a Health Potion from the towns people" << endl;
+           Item health = mainCharacter.getCurrentSpace()->getItem();
+           mainCharacter.storeItem(health);
+        }
+        if(mainCharacter.getCurrentSpace()->getSpaceName() == "C42" && mainCharacter.getCurrentSpace()->getCounter() <= 1)
+        {
+            cout << "You have received a Health Potion from the towns people" << endl;
+            Item health = mainCharacter.getCurrentSpace()->getItem();
+            mainCharacter.storeItem(health);
+        }
     }
     if(mainCharacter.getCurrentSpace()->getSpaceType() == "MonsterSpace")
     {
-       mainCharacter.getCurrentSpace()->performSpaceAction();
-       if(mainCharacter.getStillAlive() == false)
-       {
+        mainCharacter.getCurrentSpace()->performSpaceAction();
+        if(mainCharacter.getStillAlive() == false)
+        {
            cout << "The game is over" << endl;
            play = false;
-       }
-       if(mainCharacter.getCurrentSpace()->getCounter() <= 1 && mainCharacter.getStillAlive() == true)
-       {
+        }
+        if(mainCharacter.getCurrentSpace()->getCounter() <= 1 && mainCharacter.getStillAlive() == true)
+        {
            cout << "The monster dropped some Jet Fuel!" << endl;
            Item jetFuel = mainCharacter.getCurrentSpace()->getJetFuel();
            mainCharacter.storeItem(jetFuel);
-       }
+           if(mainCharacter.getCurrentSpace()->getItem().getItemName() == "Magic Item")
+           {
+               if(mainCharacter.getCurrentSpace()->getSpaceName() == "Woods")
+               {
+                   cout << "Obtained Magic Item. Your strength increase +10" << endl;
+                   Item magicItem = mainCharacter.getCurrentSpace()->getItem();
+                   mainCharacter.storeItem(magicItem);
+                   int currentStrength = mainCharacter.getStrength();
+                   mainCharacter.setStrength(currentStrength + 10);
+                   cout << "Current strength: " << mainCharacter.getStrength() << endl;
+               }
+               if(mainCharacter.getCurrentSpace()->getSpaceName() == "Frankenstein's Lab")
+               {
+                   cout << "Obtained another Magic Item. Your strength increase +20" << endl;
+                   Item magicItem = mainCharacter.getCurrentSpace()->getItem();
+                   mainCharacter.storeItem(magicItem);
+                   int currentStrength = mainCharacter.getStrength();
+                   mainCharacter.setStrength(currentStrength + 20);
+                   cout << "Current strength: " << mainCharacter.getStrength() << endl;
+               }
+            }
+        }
     }
     if(mainCharacter.getCurrentSpace()->getSpaceType() == "SpaceshipSpace")
     {
@@ -321,7 +375,8 @@ void performSpaceAction(MainCharacter &mainCharacter, bool& play)
                 getline(cin,deciphered);
                 if(deciphered == "so long and thanks for all the fish")
                 {
-                    cout << "You have successfully escaped Monster Planet! Thank you for playing!" << endl;
+                    string end = "Congratulations! The engines have started and we are blasting off! Thank you for playing Monster Planet!\n";
+                    slow_print(end, 100);
                     play = false;
                 }
                 else

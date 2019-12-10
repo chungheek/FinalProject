@@ -43,7 +43,7 @@ MainCharacter::~MainCharacter()
 *********************************************************************************/
 int MainCharacter::attackAction()
 {
-    int die = rand() % 7 + 1;
+    int die = rand() % 8 + 1;
     return die;
 }
 
@@ -102,18 +102,24 @@ void MainCharacter::setName(string n)
 *********************************************************************************/
 void MainCharacter::useHealthPotion()
 {
-    for (int i=0; i < inventory.size(); i++)
+    if(inventory.empty())
     {
-        if(inventory[i].getItemName() == "Health Potion")
+        cout << "Inventory is empty! No health potions!" << endl;
+    }
+    else
+    {
+        for (int i=0; i < inventory.size(); i++)
         {
-            setStrength(getStrength() + 5);
-            inventory.erase(inventory.begin() + i);
-            break;
+            if(inventory[i].getItemName() == "Health Potion")
+            {
+                setStrength(getStrength() + 5);
+                inventory.erase(inventory.begin() + i);
+                cout << "Used health potion +5 to strength" << endl;
+                return;
+            }
         }
-        else
-        {
-            cout << "No health potions are available" << endl;
-        }
+        cout << "There are no Health Potions in the inventory" << endl;
+        
     }
 }
 
@@ -192,7 +198,7 @@ void MainCharacter::storeItem(Item &item)
     }
     else
     {
-        cout << "There is no space in your inventory. Please remove an item." << endl;
+        cout << "There is no more space in your inventory!" << endl;
     }
 }
 

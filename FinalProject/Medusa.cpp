@@ -32,11 +32,8 @@ Medusa::~Medusa()
 **              between values of 1 and 6) +  (a random integer between
 **              between values of 1 and 6) to represent 2d6. *Glare means
 **              that if the roll adds up to 12, then it should turn opponent into
-**              stone and total dmg should exceed strength of the oponents
-**              If Medusa uses Glare and Vampire uses Charm, the Charm
-**              will trump the Glare (reason why both Glare and Charm return 100)
-**              And if Harry Potter is still on his first life Hogwarts will bring him
-**              back to life.
+**              stone and total dmg should be 50. It's possible our MainChar
+**              can survive this.
 *********************************************************************************/
 int Medusa::attackAction()
 {
@@ -45,7 +42,7 @@ int Medusa::attackAction()
     int roll = die + die2;
     if(roll == 12)
     {
-        return 100;
+        return 50;
     }
     else
     {

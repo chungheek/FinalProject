@@ -128,6 +128,7 @@ int HomeSpace::getCounter()
 void HomeSpace::performSpaceAction()
 {
     cout << "Welcome home!" << endl;
+    counter++;
 }
 
 /********************************************************************************************

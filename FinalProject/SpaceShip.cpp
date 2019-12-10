@@ -129,7 +129,7 @@ int SpaceShip::getCounter()
 **********************************************************************************************/
 void SpaceShip::performSpaceAction()
 {
-    cout << "The spaceship is worn but seems functional. Right nows there seems to be 1 out of 5 jetfuel cells. There's a weird text on the screen that seems like needing to be deciphered" << endl;
+    cout << "The spaceship looks rough around the edges but seems functional. Right now there seems to be 1 out of 5 jetfuel cells. Looks like we need 4 more fuel cells. Also there's a weird text on the screen that seems like we need to decipher" << endl;
     cout << "'bx uxwp jwm cqjwtb oxa juu cqn orbq'" << endl;
 }
 

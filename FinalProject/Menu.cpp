@@ -30,34 +30,38 @@ int Menu::menu()
 {
     int num;
     cout << "| Please select an action |" << endl;
-    cout << "----------------------" << endl;
-    cout << "| 1. Go up           |" << endl;
-    cout << "| 2. Go down         |" << endl;
-    cout << "| 3. Go left         |" << endl;
-    cout << "| 4. Go right        |" << endl;
-    cout << "| 5. Print Map       |" << endl;
-    cout << "| 6. Print Inventory |" << endl;
-    cout << "| 7. Remove Item     |" << endl;
-    cout << "----------------------" << endl;
+    cout << "---------------------------" << endl;
+    cout << "| 1. Go up                |" << endl;
+    cout << "| 2. Go down              |" << endl;
+    cout << "| 3. Go left              |" << endl;
+    cout << "| 4. Go right             |" << endl;
+    cout << "| 5. Print Map            |" << endl;
+    cout << "| 6. Print Inventory      |" << endl;
+    cout << "| 7. Remove Item          |" << endl;
+    cout << "| 8. Use Health Potion    |" << endl;
+    cout << "| 9. Get current strength |" << endl;
+    cout << "---------------------------" << endl;
     
     bool trueOrFalse = false;
     do
     {
         cin >> num;
-        if (num <= 0 || num >= 8 || cin.get() != '\n' || cin.fail())
+        if (num <= 0 || num >= 10 || cin.get() != '\n' || cin.fail())
         {
             cout << "Try again! Please select one of the following options:" << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "----------------------" << endl;
-            cout << "| 1. Go up           |" << endl;
-            cout << "| 2. Go down         |" << endl;
-            cout << "| 3. Go left         |" << endl;
-            cout << "| 4. Go right        |" << endl;
-            cout << "| 5. Print Map       |" << endl;
-            cout << "| 6. Print Inventory |" << endl;
-            cout << "| 7. Remove Item     |" << endl;
-            cout << "----------------------" << endl;
+            cout << "---------------------------" << endl;
+            cout << "| 1. Go up                |" << endl;
+            cout << "| 2. Go down              |" << endl;
+            cout << "| 3. Go left              |" << endl;
+            cout << "| 4. Go right             |" << endl;
+            cout << "| 5. Print Map            |" << endl;
+            cout << "| 6. Print Inventory      |" << endl;
+            cout << "| 7. Remove Item          |" << endl;
+            cout << "| 8. Use Health Potion    |" << endl;
+            cout << "| 9. Get current strength |" << endl;
+            cout << "---------------------------" << endl;
         }
         else
         {
