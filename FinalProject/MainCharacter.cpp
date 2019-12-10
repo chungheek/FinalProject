@@ -24,12 +24,8 @@ MainCharacter::MainCharacter()
     this->armor = 10;
     this->strength = 20;
     this->name = "MainCharacter";
-    this->inventory.reserve(10); // Sets inventory capacity to 10
+    this->inventory.reserve(10);
     this->characterType = "Main";
-    for(item : inventory)
-    {
-        item = NULL;
-    }
 }
 
 /*******************************************************************************
@@ -182,12 +178,13 @@ bool MainCharacter::useJetFuel()
     return useFuel;
 }
 
-/*******************************************************************************
-** Description: MainCharacter::storeItem() will allow a user to store an item
-*********************************************************************************/
+/**********************************************************************************
+** Description: MainCharacter::storeItem() will allow a user to store an item.
+**          The capacity of inventory is set to 10.
+************************************************************************************/
 void MainCharacter::storeItem(Item &item)
 {
-    if(inventory[inventory.end - 1] != NULL)
+    if(inventory.size() < 10)
     {
         inventory.push_back(item);
     }
@@ -206,11 +203,11 @@ void MainCharacter::removeItem()
     cout << "Please select an Item to remove: " << endl;
     for(int i=0; i < inventory.size(); i++)
     {
-        cout << (i+1) << ". " << inventory[i].getItemName << endl;
+        cout << (i+1) << ". " << inventory[i].getItemName() << endl;
     }
     int selection;
     cin >> selection; //TODO need to place integer validator here. 
 
-    cout << "Removing  " << inventory[selection-1].getItemName << endl;
-    inventory.erase(inventory.begin() + (selection-1);
+    cout << "Removing  " << inventory[selection-1].getItemName() << endl;
+    inventory.erase(inventory.begin() + (selection-1));
 }
