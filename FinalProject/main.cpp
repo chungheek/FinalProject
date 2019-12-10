@@ -302,7 +302,7 @@ void performSpaceAction(MainCharacter &mainCharacter, bool& play)
     if(mainCharacter.getCurrentSpace()->getSpaceType() == "HomeSpace")
     {
         mainCharacter.getCurrentSpace()->performSpaceAction();
-        if(mainCharacter.getCurrentSpace()->getCounter() == 2)
+        if(mainCharacter.getCurrentSpace()->getCounter() == 1)
         {
             cout << "You have found a Health Potion at home!" << endl;
             Item health = mainCharacter.getCurrentSpace()->getItem();

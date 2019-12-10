@@ -18,7 +18,6 @@ using std::string;
 class HomeSpace : public Space
 {
 private:
-    int healCounter;
     Space *top;
     Space *bottom;
     Space *left;
