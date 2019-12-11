@@ -67,7 +67,7 @@ int main()
         Character *frankenstein = new Frankenstein();
         Space *frankensteinLab = new MonsterSpace(frankenstein, mainCharacter, "Frankenstein's Lab");
         
-        Space *townA42 = new ClueSpace("A42", "Welcome to town A42! As you can see there seems to be a spaceship on the map. Perhaps you can use that to escape? It's rumoured that the monsters withold jetfuel...\n Fun Fact: the towns people of A42 love Caesar Salad and fish on their salad");
+        Space *townA42 = new ClueSpace("A42", "Welcome to town A42! As you can see there seems to be a spaceship on the map. Perhaps you can use that to escape? It's rumoured that the monsters withold jetfuel and magical items...\n Fun Fact: the towns people of A42 love Caesar Salad and fish on their salad");
         Space *townB42 = new ClueSpace("B42", "Welcome to town B42, we are in need of your help! The big wolf in the woods and frankenstein's monster terrorizes both sides of the city! Please help us defeat them!\n Fun Fact: the towns people of B42 love the fact that there are NINE realms on Monster Planet...just not the monsters part...");
         Space *townC42 = new ClueSpace("C42", "Welcome to town C42, the Vampire and Medusa completely rule these lands and we need help! Please help us defeat them! But be warned they are incredibly strong!\n Fun Fact: the towns people of C42 were masters of encryption, but they do not share their secrets with anyone.");
         
