@@ -1,7 +1,7 @@
 /************************************************************************************************
 ** Author: Chunghee Kim
 ** Date: 12/01/2019
-** Description: Main file for MonsterPlanet is a turn based strategy game that is
+** Description: Main file for MonsterPlanet is a menu based strategy game that is
 **          inspired by OSU CS162's Fantasy Combat assignment and theme's from
 **          HitchHiker's Guide to the Galaxy. This is a puzzle/survival/strategy game and
 **          the point of the game is to not be killed by one of the monster's and safely
@@ -144,7 +144,7 @@ int main()
         
         // Start out at the crash site or at [Home]
         mainCharacter.setCurrentSpace(homeSpace);
-        string message2 = mainCharacter.getName() + ", please use the map to gain clues, fight monsters, and figure out how to leave this planet.\n";
+        string message2 = mainCharacter.getName() + ", you currently have a strength/health of 5. Please use the map to gain clues, gather strength, fight monsters, and figure out how to leave this planet. Be wary of stepping into a monster space as that might be the end of the game for you...\n";
         slow_print(message2, 100);
         
         bool keepPlaying = true;
