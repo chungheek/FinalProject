@@ -160,14 +160,12 @@ int Menu::integerValidator(int low, int high)
 {
     int val;
     bool trueOrFalse = false;
-    //cout << "Please enter an integer" << endl;
     do
     {
         cin >> val;
-        if(cin.fail() || cin.get() != '\n' || (val < low && val > high))
+        if(cin.fail() || cin.get() != '\n' || (val < low || val > high))
         {
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Try again! Please enter an integer between " << low << " and " << high << endl;
         }
         else
